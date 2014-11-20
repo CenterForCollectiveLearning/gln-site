@@ -1,0 +1,45 @@
+<html ng-app="glnApp" lang="en">
+    <head>
+        <base href="/">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="styles.css">
+
+        <script src="http://www.d3plus.org/js/d3.js"></script>
+        <script src="http://www.d3plus.org/js/d3plus.js"></script>
+        <script src="lib/angular.min.js"></script>    
+        <script src="lib/angular-route.min.js"></script>    
+         
+     </head>
+    <body>
+        <header>
+            <div class="title-paper">
+                <div class="title">Global Language Network</div>
+                <div class="paper">
+                    <div>Ronen S, Goncalves B, Hu KZ, Vespignani A, Pinker SA, Hidalgo CA</div>
+                    <div>Links that speak: the global language network and its association with global fame</div>
+                    <div>PNAS Vol (Issue) pages (YEAR)</div>
+                </div>
+            </div>
+            <nav ng-controller="navCtrl">
+                <ul>
+                    <li ng-repeat="link in links"><a ng-class="{active: isActive(link.route)}" href="{{link.route}}">{{link.title}}</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div ng-view></div>
+       
+        <footer>
+            The global language network is a project by the MIT Media Lab Macro Connections  group (Ronen, Hu, Hidalgo) in collaboration with Northeastern MoBS (Vespignani) , Aix-Marseille Université (Goncalves), and Harvard (Pinker)
+        </footer>
+        <script src="app.js"></script>  
+    </body>
+</html>

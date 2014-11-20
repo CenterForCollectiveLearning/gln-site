@@ -1,0 +1,137 @@
+$almost-black: #111;
+$gray: #AEAEAE;
+
+// Universal Link Styling
+a {
+    text-decoration: none !important;
+}
+
+// Universal List Styling
+ul {
+    list-style-type: none;
+    li {
+        list-style-type: none;
+    }
+}
+
+@mixin nudge {
+    cursor: pointer;
+    position: relative;
+    &:hover { bottom: 1px; }
+}
+
+@mixin transition($property, $duration, $timing-function) {
+    -webkit-transition: $property $duration $timing-function;
+    -moz-transition: $property $duration $timing-function;
+    -o-transition: $property $duration $timing-function;
+    transition: $property $duration $timing-function;
+}
+
+@mixin opacity-transition { @include transition(opacity, 0.1s, ease-in) }
+@mixin border-transition { @include transition(border, 0.1s, ease-in) }
+@mixin background-transition { @include transition(background, 0.1s, ease-in) }
+
+@font-face {
+    font-family: 'DIN';
+    src: url('assets/fonts/DINLight.ttf') format('ttf'), url('assets/fonts/DINLight.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Karbon';
+    src: url('assets/fonts/karbon-medium-webfont.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Karbon';
+    src: url('assets/fonts/karbon-light-webfont.woff') format('woff');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Karbon';
+    src: url('assets/fonts/karbon-regular-webfont.woff') format('woff');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Karbon';
+    src: url('assets/fonts/karbon-semibold-webfont.woff') format('woff');
+    font-weight: bold;
+}
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: $almost-black;
+    color: white;
+    font-size: 16px;
+    font-family: Karbon;
+    font-weight: 300;
+}
+
+header {
+    // position: fixed;
+    width: 100%;
+
+    div.title-paper {
+        margin-top: 10px;
+        margin-left: 10px;
+        div.title {
+            font-size: 28px;
+        }
+
+        div.paper {
+            margin-top: 10px;
+        }
+    }
+
+    nav {
+        position: absolute;
+        top: 0;
+        right: 0;
+        ul {
+            margin-right: 10px;
+            li {
+                line-height: 40px;
+                float: left;
+                margin-right: 30px;
+                a {
+                    text-transform: capitalize;
+                    color: white;
+                    @include nudge;
+                    &.active {
+                        border-bottom: 1px solid white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+div#viz {
+
+}
+
+div.content {
+    min-height: 400px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+div.desc {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+footer {
+    border-top: 1px solid $gray;
+    margin: 0 20px;
+    padding-top: 10px;
+}
