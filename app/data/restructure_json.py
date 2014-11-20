@@ -25,9 +25,9 @@ def main():
 			temp_datum  = node['data']
 			log_num_speaker = node['data'].get('LogNumSpeaker')
 			if log_num_speaker:
-				temp_datum['size'] = 100 #log_num_speaker
+				temp_datum['LogNumSpeaker'] = log_num_speaker
 			else:
-				temp_datum['size'] = 1
+				temp_datum['LogNumSpeaker'] = 1.0
 			final_data.append(temp_datum)
 
 		for edge in edges:

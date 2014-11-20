@@ -23,6 +23,7 @@ sources =
   coffee: 'app/scripts/*.coffee'
   assets: 'app/assets/**/*'
   lib: 'app/scripts/lib/*.js'
+  data: 'app/data/*.json'
 
 destinations =
   css: 'dist/'
@@ -30,6 +31,7 @@ destinations =
   js: 'dist/'
   assets: 'dist/assets'
   lib: 'dist/lib/'
+  data: 'dist/data/'
 
 # TASKS -------------------------------------------------------------
 
@@ -71,6 +73,10 @@ gulp.task('lint', ->
   .pipe(coffeelint.reporter())
 )
 
+gulp.task('data', ->
+  gulp.src(sources.data).pipe(gulp.dest(destinations.data))
+)
+
 gulp.task('html', ->
   gulp.src(sources.html).pipe(gulp.dest(destinations.html))
 )
@@ -88,6 +94,7 @@ gulp.task('watch', ->
   server.listen(SERVERPORT)
   refresh.listen(LIVERELOADPORT)
 
+  gulp.watch sources.data, ['data']
   gulp.watch sources.sass, ['sass']
   gulp.watch sources.assets, ['assets']
   gulp.watch sources.html, ['html']
@@ -105,7 +112,7 @@ gulp.task('clean', ->
 
 # Build sequence
 gulp.task('build', ->
-  runSequence('clean', ['coffee', 'sass', 'html', 'lib', 'assets'])
+  runSequence('clean', ['coffee', 'sass', 'data', 'html', 'lib', 'assets'])
 )
 
 gulp.task('default', [

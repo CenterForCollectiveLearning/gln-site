@@ -74,7 +74,9 @@ html, body {
 }
 
 header {
-    // position: fixed;
+    z-index: 10;
+    position: fixed;
+    top: 0;
     width: 100%;
 
     div.title-paper {
@@ -112,8 +114,34 @@ header {
     }
 }
 
-div#viz {
+div.dataset {
+    position: fixed;
+    z-index: 10;
+    top: 130px;
+    left: 10px;
 
+    ul {
+        margin: 0;
+        float: right;
+
+        li {
+            margin-right: 10px;
+            float: left;
+            text-transform: capitalize;
+
+            a {
+                @include nudge;
+                &.active {
+                    border-bottom: 1px solid white;
+                }
+            }
+        }
+    }
+}
+
+div#viz {
+    height: 100%;
+    width: 100%;
 }
 
 div.content {
@@ -127,11 +155,12 @@ div.content {
 div.desc {
     width: 100%;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 40px auto 50px auto;
 }
 
 footer {
     border-top: 1px solid $gray;
     margin: 0 20px;
     padding-top: 10px;
+    padding-bottom: 10px;
 }
