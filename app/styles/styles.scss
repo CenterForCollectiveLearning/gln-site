@@ -1,10 +1,7 @@
 $almost-black: #111;
 $gray: #AEAEAE;
 
-// Universal Link Styling
-a {
-    text-decoration: none !important;
-}
+
 
 // Universal List Styling
 ul {
@@ -12,6 +9,26 @@ ul {
     li {
         list-style-type: none;
     }
+}
+
+@mixin no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+@mixin text-select {
+    -webkit-touch-callout: text;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    cursor: default;
 }
 
 @mixin nudge {
@@ -33,30 +50,60 @@ ul {
 
 @font-face {
     font-family: 'DIN';
-    src: url('assets/fonts/DINLight.ttf') format('ttf'), url('assets/fonts/DINLight.woff') format('woff');
+    src: url('assets/DINLight.ttf') format('ttf'), url('assets/DINLight.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Karbon';
-    src: url('assets/fonts/karbon-medium-webfont.woff') format('woff');
+    src: url('assets/karbon-medium-webfont.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Karbon';
-    src: url('assets/fonts/karbon-light-webfont.woff') format('woff');
+    src: url('assets/karbon-light-webfont.woff') format('woff');
     font-weight: 300;
 }
 
 @font-face {
     font-family: 'Karbon';
-    src: url('assets/fonts/karbon-regular-webfont.woff') format('woff');
+    src: url('assets/karbon-regular-webfont.woff') format('woff');
     font-weight: normal;
 }
 
 @font-face {
     font-family: 'Karbon';
-    src: url('assets/fonts/karbon-semibold-webfont.woff') format('woff');
+    src: url('assets/karbon-semibold-webfont.woff') format('woff');
     font-weight: bold;
+}
+
+@font-face {
+    font-family: Neutral;
+    src: url("assets/neutral-regular-3.woff");
+    font-style: normal;
+    font-weight: 300;
+    font-stretch: normal;
+    }
+@font-face {
+    font-family: Neutral;
+    src: url("assets/neutral-medium-3.woff");
+    font-style: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    }
+@font-face {
+    font-family: Neutral;
+    src: url("assets/neutral-bold-3.woff");
+    font-style: normal;
+    font-weight: bold;
+    font-stretch: normal;
+    }
+
+// Universal Link Styling
+a {
+    @include nudge;
+    text-decoration: none !important;
+    color: white;
+    border-bottom: 1px solid white;
 }
 
 *, *:before, *:after {
@@ -66,11 +113,13 @@ ul {
 html, body {
     margin: 0;
     padding: 0;
-    background-color: $almost-black;
+    background-color: black; // $almost-black;
     color: white;
     font-size: 16px;
-    font-family: Karbon;
+    font-family: Neutral, Karbon, 'Helvetica', Arial, Sans Serif;
     font-weight: 300;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 header {
@@ -78,16 +127,20 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
+    padding-bottom: 10px;
 
     div.title-paper {
-        margin-top: 10px;
-        margin-left: 10px;
+        padding-top: 16px;
+        padding-left: 10px;
         div.title {
-            font-size: 28px;
+            font-size: 30px;
         }
 
         div.paper {
+            line-height: 18px;
+            margin-left: 2px;
             margin-top: 10px;
+            font-size: 14px;
         }
     }
 
@@ -102,11 +155,13 @@ header {
                 float: left;
                 margin-right: 30px;
                 a {
+                    padding-bottom: 1px;
                     text-transform: capitalize;
                     color: white;
+                    border-bottom: none;
                     @include nudge;
                     &.active {
-                        border-bottom: 1px solid white;
+                        border-bottom: 2px solid white;
                     }
                 }
             }
@@ -114,10 +169,15 @@ header {
     }
 }
 
+@media only screen and (max-width : 500px) {
+
+}
+
+
 div.dataset {
     position: fixed;
     z-index: 10;
-    top: 130px;
+    top: 160px;
     left: 10px;
 
     ul {
@@ -131,13 +191,44 @@ div.dataset {
 
             a {
                 @include nudge;
+                border-bottom: none;
+                padding-bottom: 1px;
                 &.active {
-                    border-bottom: 1px solid white;
+                    border-bottom: 2px solid white;
                 }
             }
         }
     }
 }
+
+@media only screen and (max-width : 1024px) {
+    header {
+        position: static;
+        border-bottom: 1px solid white;
+
+        div.title-paper {
+            border-bottom: 1px solid white;
+            padding-bottom: 15px;
+
+            div.paper {
+                font-size: 14px;
+            }
+        }
+
+        nav {
+            position: static;
+            height: 42px;
+            width: 500px;
+            margin: 0 auto;
+        }
+
+    }
+
+    div.dataset {
+        top: 300px;
+    }
+}
+
 
 div#viz {
     height: 100%;
@@ -148,19 +239,47 @@ div.content {
     min-height: 400px;
     width: 100%;
     max-width: 600px;
+    height: 100%;
     margin: 0 auto;
     margin-top: 100px;
+
+    div.title {
+        margin-top: 150px;
+        text-align: center;
+        font-size: 28px;
+    }
+
+    div.text {
+        margin-top: 20px;
+
+        div.category {
+            text-align: center;
+            padding: 10px 0;
+        }
+    }
 }
 
 div.desc {
+    line-height: 22px;
     width: 100%;
     max-width: 600px;
-    margin: 40px auto 50px auto;
+    margin: 60px auto 70px auto;
 }
 
 footer {
     border-top: 1px solid $gray;
     margin: 0 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+
+    div.logos {
+        margin-top: 20px;
+        height: 60px;
+
+        img {
+            height: 60px;
+            margin-left: 20px;
+        }
+    }
 }

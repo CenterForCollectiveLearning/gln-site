@@ -22,7 +22,7 @@ angular.module('glnApp').controller('navCtrl', ['$scope', '$location', ($scope, 
 ])
 
 angular.module('glnApp').controller('visualizationCtrl', ['$scope', ($scope) ->
-    $scope.datasets = ['twitter', 'wikipedia', 'books']
+    $scope.datasets = ['books', 'twitter', 'wikipedia']
     $scope.selectedDataset = $scope.datasets[0]
 
     $scope.isActive = (d) -> (d is $scope.selectedDataset)

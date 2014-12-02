@@ -29973,6 +29973,8 @@ var network = function(vars) {
       delete l.d3plus.spline
     }
 
+    console.log(vars.edges.source)
+
     l[vars.edges.source].d3plus = {}
     var source = lookup[l[vars.edges.source][vars.id.value]]
     l[vars.edges.source].d3plus.r = source.r
