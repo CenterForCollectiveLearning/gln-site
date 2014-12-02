@@ -12,7 +12,7 @@ angular.module('glnApp').controller('navCtrl', ['$scope', '$location', ($scope, 
     $scope.isActive = (route) ->
         path = $location.path();
         if (route == '/')
-            if (path.length == 1)
+            if (path.split('/')[1] == 'visualization')
                 return true
         else 
             if (path.substr(0, route.length) == route)
@@ -21,12 +21,18 @@ angular.module('glnApp').controller('navCtrl', ['$scope', '$location', ($scope, 
                 return false
 ])
 
-angular.module('glnApp').controller('visualizationCtrl', ['$scope', ($scope) ->
+angular.module('glnApp').controller('visualizationCtrl', ['$scope', '$routeParams', '$location', ($scope, $routeParams, $location) ->
     $scope.datasets = ['books', 'twitter', 'wikipedia']
-    $scope.selectedDataset = $scope.datasets[0]
+
+    if $routeParams.dataset
+        $scope.selectedDataset = $routeParams.dataset
+
+    else
+        $scope.selectedDataset = $scope.datasets[0]
 
     $scope.isActive = (d) -> (d is $scope.selectedDataset)
     $scope.selectDataset = (d) ->
-        console.log('selected dataset', d)
-        $scope.selectedDataset = d
+        pathList = $location.path().split('/')
+        pathList[2] = d
+        $location.path(pathList.join('/'))
 ])

@@ -55,35 +55,33 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                 .color("Family Name")
                 .text("Lang_Name")
                 .tooltip(["Final_Name", "Family Name", "Number of Speakers (millions)"])
-                .legend({
+                .legend(
                   order:
                     sort: "desc"
                     value: true
                   size: 40
-                })
-                .labels({
+                )
+                .labels(
                   resize: true
                   value: true
-                })
+                )
                 .font(
                   color: "#FFF"
                   family: "Neutral"
                 )
-                .size({
+                .size(
                   scale: d3.scale.linear()
                   value: "Log(Number of Speakers)"
-                })
-                .edges({
+                )
+                .edges(
                   arrows: false
                   color: "#FFF"
                   interpolate: "monotone"
                   size: "Coocurrences"
                   opacity: "opacity"
                   label: "coocurrences"
-                })
-                .background("transparent")# "#111")
-                # .size("Log(Number of Speakers)")
-
+                )
+                .background("transparent")
                 # .focus('English')
                 .id("id")
                 .ui([

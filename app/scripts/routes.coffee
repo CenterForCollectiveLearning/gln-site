@@ -1,7 +1,10 @@
 angular.module('glnApp').config(['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
   $routeProvider
     .when('/', 
-      templateUrl: './templates/visualization.html',
+      redirectTo: '/visualization/books'
+    )
+    .when('/visualization/:dataset',
+      templateUrl: './templates/visualization.html'
     )
     .when('/paper',
       templateUrl: './templates/paper.html',
