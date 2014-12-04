@@ -37,59 +37,94 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
 
             d3.json(dataset, (error, data) ->
 
-              languages = []
-              languagesToIDs = {}
-              for d in data.data
-                languages.push(d.Lang_Name)
-                languagesToIDs[d.Lang_Name] = d.id
+              languagesList = []
+              languagesToIDsCollection =[]
+              languagesToIDsMapping = {}
 
-              # TODO Mute for n/as?
+              for d in data.data
+                id = d.id
+                langName = d['Lang_Name']
+                languageToIDMapping = {}
+                languageToIDMapping[langName] = id
+                languagesToIDsCollection.push(languageToIDMapping)
+                languagesToIDsMapping[langName] = id
+
+              languagesToIDsCollection = _.sortBy(languagesToIDsCollection, (d) -> Object.keys(d)[0])
+
+              # visualization = d3plus.viz()
+              #   .dev(true)
+              #   .data(data.data)
+              #   .type("rings")
+              #   .text("Lang_Name")
+              #   .container("#viz")
+              #   .size(
+              #     scale: d3.scale.linear()
+              #     value: "Log(Number of Speakers)"
+              #   )
+              #   #.nodes(data.nodes)
+              #   .edges(data.edges)
+              #   .focus(languagesToIDsMapping['French'])
+              #   .draw()
 
               visualization = d3plus.viz()
                 .dev(true)
                 .data(data.data)
-                .nodes(data.nodes)
-                .edges(data.edges)
                 .type("network")
                 .container("#viz")
-                .color("Family Name")
                 .text("Lang_Name")
-                .tooltip(["Final_Name", "Family Name", "Number of Speakers (millions)"])
+                .color("Family_Name")                
+                .descs(
+                  "Log(Number of Speakers)": "Test"
+                )
+                # .tooltip(["Family Name", "Number of Speakers (millions)"])
                 .legend(
                   order:
                     sort: "desc"
-                    value: true
+                    value: "size"
                   size: 40
                 )
                 .labels(
-                  resize: true
-                  value: true
+                  padding: 0
                 )
-                .font(
-                  color: "#FFF"
-                  family: "Neutral"
-                )
+                
                 .size(
                   scale: d3.scale.linear()
                   value: "Log(Number of Speakers)"
                 )
+                .nodes(data.nodes)
+                .nodes(
+                  overlap: 0.9
+                )
+                .edges(data.edges)
                 .edges(
-                  arrows: false
-                  color: "#FFF"
-                  interpolate: "monotone"
-                  size: "Coocurrences"
-                  opacity: "opacity"
-                  label: "coocurrences"
+                  # color: "#FFF"
+                  size: "size"  # "Coocurrences"
+                  # opacity: 0.5
+                )
+                .tooltip(
+                  # background: "#000"
+                  opacity: 0.8
+                  font:
+                    color: "#FFF"
                 )
                 .background("transparent")
-                # .focus('English')
+                .focus(languagesToIDsMapping['English'])
                 .id("id")
+                .font(
+                  family: "Oswald"
+                  weight: "400"
+                  color: "#FF0000"
+                )
                 .ui([
                     method: "size"
+                    label: "Node Size"
+                    type: "button"
                     value: ["Number of Speakers (millions)", "Log(Number of Speakers)"]
                   ,
                     method: "focus",
-                    value: languages
+                    label: "Focus Language"
+                    type: "drop"
+                    value: languagesToIDsCollection  # TODO Sort by display language, not ID
                 ])
                 .draw()
             )

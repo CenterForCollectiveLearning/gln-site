@@ -26,8 +26,8 @@ def main():
 
 			temp_datum = node['data']
 			temp_datum['Family Name'] = temp_datum['Viz_Family_Name']
-			temp_datum['Number of Speakers (millions)'] = temp_datum.get('Num_Speakers_M', 1)
-			temp_datum['Log(Number of Speakers)'] = temp_datum.get('LogNumSpeaker', 1)
+			temp_datum['Number of Speakers (millions)'] = 0.5 * temp_datum.get('Num_Speakers_M', 1)
+			temp_datum['Log(Number of Speakers)'] = 0.5 * temp_datum.get('LogNumSpeaker', 1)
 			final_data.append(temp_datum)
 
 		# Iterate through edges
@@ -56,7 +56,8 @@ def main():
 			temp_edge['source'] = edge['data']['source']  # ['SourceLanguageName']
 			temp_edge['target'] = edge['data']['target'] # ['TargetLanguageName']
 			temp_edge['opacity'] = edge['data']['Tstatistic'] / max_t
-			temp_edge['size'] = 10 * float(edge['data']['Coocurrences']) / max_co
+			# temp_edge['size'] = 1000000000 * float(edge['data']['Coocurrences']) / max_co
+			temp_edge['size'] = edge['data']['Coocurrences']
 			temp_edge['coocurrences'] = edge['data']['Coocurrences']
 			final_edges.append(temp_edge)
 

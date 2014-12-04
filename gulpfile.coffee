@@ -23,7 +23,7 @@ sources =
   coffee: 'app/scripts/*.coffee'
   assets: 'app/assets/**/*'
   lib: 'app/scripts/lib/*.js'
-  data: 'app/data/*.json'
+  data: 'app/data/**/*'
 
 destinations =
   css: 'dist/'
