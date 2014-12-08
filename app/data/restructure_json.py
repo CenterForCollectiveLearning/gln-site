@@ -25,7 +25,7 @@ def main():
 			final_nodes.append(temp_node)
 
 			temp_datum = node['data']
-			temp_datum['Family Name'] = temp_datum['Viz_Family_Name']
+			temp_datum['Family Name'] = temp_datum['Primary_Family_Name']
 			temp_datum['Number of Speakers (millions)'] = 0.5 * temp_datum.get('Num_Speakers_M', 1)
 			temp_datum['Log(Number of Speakers)'] = 0.5 * temp_datum.get('LogNumSpeaker', 1)
 			final_data.append(temp_datum)

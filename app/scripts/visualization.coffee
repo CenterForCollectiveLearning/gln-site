@@ -34,6 +34,22 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
             wikipedia: 0.7
             books: 4.0
 
+          familyToColor = 
+            'Afro-Asiatic': '#CC6680'
+            'Altaic': '#9CFF9C'
+            'Amerindian': '#4E994E'
+            'Austronesian': '#FF87FF'
+            'Caucasian': '#BAFEFF'
+            'Creoles and pidgins': '#9933FF'
+            'Dravidian': '#F7E406'
+            'Indo-European': '#7470FF'
+            'Niger-Kordofanian': '#FF6666'
+            'Other': '#999999'
+            'Sino-Tibetan': '#E67E5A'
+            'Tai': '#FFFF00'
+            'Uralic': '#9999FF'
+
+
           dataset = dataPrefix + datasetToFile[selectedDataset]
 
           clearTimeout(renderTimeout) if renderTimeout
@@ -78,17 +94,23 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                 .data(data.data)
                 .type("network")
                 .container("#viz")
+                .font(
+                  family: "Oswald"
+                  color: "#000000"
+                  transform: "uppercase"
+                )      
                 .text("Lang_Name") #"name")
                 # .descs(
                 #   "Log(Number of Speakers)": "Test"                  
                 # )
-                .tooltip(["Family Name", "Number of Speakers (millions)"])
+
+
                 .legend(
                   text: "Family Name"
-                  order:
-                    sort: "desc"
-                    value: "size"
-                  size: 40
+                  # order:
+                  #   sort: "desc"
+                  #   value: "size"
+                  size: 60
                 )
                 .labels(
                   padding: 0
@@ -104,6 +126,7 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                 .nodes(
                   overlap: overlap
                 )
+
                 .edges(data.edges)
                 .edges(
                   color: "#000"
@@ -111,21 +134,17 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                   opacity: 0.7
                 )
                 .tooltip(
-                  # background: "#000"
-                  opacity: 0.8
+                  opacity: 1.0
                   font:
                     color: "#FFF"
                 )
+                .tooltip(["Family Name", "Log(Number of Speakers)", "Number of Speakers (millions)"])
                 .background("transparent")
                 # .focus(languagesToIDsMapping['English'])
                 .id("id")
-                .font(
-                  # family: "Oswald"
-                  # weight: "400"
-                  color: "#FF0000"
-                  transform: "uppercase"
-                )
-                .color("Family Name")                
+                .color((d) ->
+                  familyToColor[d["Family Name"]]
+                )       
                 .ui([
                     method: "size"
                     label: "Node Size"
@@ -137,6 +156,7 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                     type: "drop"
                     value: languagesToIDsCollection
                 ])
+
                 .draw()
             )
           , 200)
