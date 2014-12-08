@@ -15,7 +15,10 @@
         <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
         <script src="http://www.d3plus.org/js/d3.js"></script>
         <script src="http://www.d3plus.org/js/d3plus.js"></script>
-        <!-- <script src="lib/d3plus-dev.js"></script> -->
+        <!--<script src="lib/d3plus-dev.js"></script> -->
+
+        <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 
 
         <script src="lib/d3.js"></script>    
@@ -34,11 +37,11 @@
                     <div>PNAS Vol (Issue) pages (YEAR)</div>
                 </div> -->
             </div>
-            <nav ng-controller="navCtrl">
+            <div class="nav" ng-controller="navCtrl">
                 <ul>
                     <li ng-repeat="link in links"><a ng-class="{active: isActive(link.route)}" href="{{link.route}}">{{link.title}}</a></li>
                 </ul>
-            </nav>
+            </div>
         </header>
         
         <div ng-view></div>
@@ -48,10 +51,10 @@
                 The Global Language Network is a project by the MIT Media Lab Macro Connections group (Ronen, Hu, Hidalgo) in collaboration with Northeastern MoBS (Vespignani) , Aix-Marseille Université (Goncalves), and Harvard (Pinker)
             </div>
             <div class="logos">
-                <img src="assets/mc_ml_logo_white.png" /> <span class="collaboration">in collaboration with</span>
+                <img src="assets/mc_ml_logo.svg" /> <span class="collaboration">in collaboration with</span>
                 <img src="assets/Aix-Marseille_University_logo.png" />
                 <img src="assets/northeastern.png" />
-                <img src="assets/harvard_university_logo.svg" />
+                <img src="assets/harvard-logo.png" />
             </div>
         </footer>
         <script src="app.js"></script>  

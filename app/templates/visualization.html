@@ -1,7 +1,7 @@
 <div class="visualization-pane" ng-controller="visualizationCtrl">
     <div class="dataset">
-    	<span class="label">Data Source</span>
-    	<ul>
+<!--     	<span class="label">Data Source</span>-->    	
+    <ul>
     		<li ng-repeat="dataset in datasets">
     			<a ng-click="selectDataset(dataset)" ng-class="{'active':isActive(dataset)}">{{dataset}}</a>
     		</li>

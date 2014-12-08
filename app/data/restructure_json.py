@@ -31,7 +31,6 @@ def main():
 			final_data.append(temp_datum)
 
 		# Iterate through edges
-
 		min_co = sys.maxint
 		max_co = -sys.maxint - 1
 
