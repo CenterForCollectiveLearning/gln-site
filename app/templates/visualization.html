@@ -1,6 +1,6 @@
 <div class="visualization-pane" ng-controller="visualizationCtrl">
     <div class="dataset">
-<!--     	<span class="label">Data Source</span>-->    	
+     	<!-- <span class="arrow">↳</span> --><span class="label">Data Source:</span>    	
     <ul>
     		<li ng-repeat="dataset in datasets">
     			<a ng-click="selectDataset(dataset)" ng-class="{'active':isActive(dataset)}">{{dataset}}</a>
@@ -19,6 +19,14 @@
     
      	<p>For details on the methodology and interpretation of the data see Ronen et al. Links that speak: the global language network and its association with global fame. PNAS Vol (Issue), pages (YEAR)</p>
     </div>
-    <div class="navigator">        
+    <div class="navigator">    
+        <div class="to-bottom">
+            Description  
+            <div class="arrow-down"></div>      
+        </div>
+<!--         <div class="to-top">
+            <div class="arrow-up"></div>
+            Top
+        </div> -->
     </div>
 </div>

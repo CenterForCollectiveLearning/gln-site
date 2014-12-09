@@ -66,7 +66,7 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
 
               for d in data.data
                 id = d.id
-                langName = d['Lang_Name']
+                langName = d['Language Name']
                 languageToIDMapping = {}
                 languageToIDMapping[langName] = id
                 languagesToIDsCollection.push(languageToIDMapping)
@@ -95,16 +95,19 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                 .type("network")
                 .container("#viz")
                 .font(
-                  family: "Oswald"
+                  family: "Open Sans Condensed"#"Oswald"
+                  weight: 700
                   color: "#000000"
-                  transform: "uppercase"
+                  transform: "lowercase"
                 )      
-                .text("Lang_Name") #"name")
+                .text("name")
                 # .descs(
                 #   "Log(Number of Speakers)": "Test"                  
                 # )
 
-
+                .format({text: (text, key) ->
+                  text.toUpperCase()
+                })
                 .legend(
                   text: "Family Name"
                   # order:
@@ -138,7 +141,7 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                   font:
                     color: "#FFF"
                 )
-                .tooltip(["Family Name", "Log(Number of Speakers)", "Number of Speakers (millions)"])
+                .tooltip(["Language Name", "Family Name", "Log(Number of Speakers)", "Number of Speakers (millions)"])
                 .background("transparent")
                 # .focus(languagesToIDsMapping['English'])
                 .id("id")
