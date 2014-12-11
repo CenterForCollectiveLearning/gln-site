@@ -19,14 +19,14 @@
     
      	<p>For details on the methodology and interpretation of the data see Ronen et al. Links that speak: the global language network and its association with global fame. PNAS Vol (Issue), pages (YEAR)</p>
     </div>
-    <div class="navigator">    
-        <div class="to-bottom">
+    <div class="navigator" navigator>    
+        <div class="to-bottom" ng-if="top" ng-click="scrollTo('bottom')">
             Description  
             <div class="arrow-down"></div>      
         </div>
-<!--         <div class="to-top">
+        <div class="to-top" ng-if="!top" ng-click="scrollTo('top')">
             <div class="arrow-up"></div>
-            Top
-        </div> -->
+            Top of Page
+        </div>
     </div>
 </div>

@@ -241,39 +241,44 @@ div.dataset {
     }
 }
 
-@media only screen and (max-width : 1024px) {
-    header {
-        position: static;
-        // border-bottom: 1px solid black;
+// @media only screen and (max-width : 1024px) {
+//     header {
+//         position: static;
+//         // border-bottom: 1px solid black;
 
-        div.title-paper {
-            // border-bottom: 1px solid black;
-            padding-bottom: 15px;
+//         div.title-paper {
+//             // border-bottom: 1px solid black;
+//             padding-bottom: 15px;
 
-            div.paper {
-                font-size: 14px;
-            }
-        }
+//             div.paper {
+//                 font-size: 14px;
+//             }
+//         }
 
-        div.nav {
-            position: static;
-            height: 42px;
-            width: 500px;
-            margin: 0 auto;
-        }
+//         div.nav {
+//             position: static;
+//             height: 42px;
+//             width: 500px;
+//             margin: 0 auto;
+//         }
 
-    }
+//     }
 
-    div.dataset {
-        top: 300px;
-    }
-}
+//     div.dataset {
+//         top: 300px;
+//     }
+// }
 
 
 div#viz {
     height: 100%;
     width: 100%;
 }
+
+// rect.d3plus_data {
+//     -webkit-filter: drop-shadow( -5px -5px 100px #F00 );
+//             filter: drop-shadow( -5px -5px 5px #000 ); /* Same syntax as box-shadow */
+// }
 
 div.content {
     // font-family: Neutral;
@@ -363,6 +368,7 @@ footer {
 }
 
 div.navigator {
+    cursor: pointer;
     text-align: center;
 }
 

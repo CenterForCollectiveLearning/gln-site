@@ -1,5 +1,9 @@
 glnApp = angular.module('glnApp', ['ngRoute'])
 
+angular.module('glnApp').config(function($resourceProvider) {
+  $resourceProvider.defaults.stripTrailingSlashes = false;
+});
+
 angular.module('glnApp').controller('navCtrl', ['$scope', '$location', ($scope, $location) ->
     $scope.links = [
         {route: '/', title: 'visualization'},
@@ -36,3 +40,25 @@ angular.module('glnApp').controller('visualizationCtrl', ['$scope', '$routeParam
         pathList[2] = d
         $location.path(pathList.join('/'))
 ])
+
+angular.module('glnApp').directive('navigator', ($window, $document) ->
+    return {
+        restrict: 'A'
+        link: (scope, $e) ->
+            scope.top = true
+            angular.element($window).bind("scroll", ->
+                maxScroll = $document.height() - $window.innerHeight
+                console.log(this.pageYOffset)
+                if (this.pageYOffset > maxScroll - 300)
+                    scope.top = false
+                else
+                    scope.top = true
+                scope.$apply()
+            )
+            scope.scrollTo = (direction) ->
+                if (direction is 'bottom')
+                    $("body").animate(scrollTop: $("body").height())
+                else 
+                    $("body").animate(scrollTop: 0)
+    }
+)

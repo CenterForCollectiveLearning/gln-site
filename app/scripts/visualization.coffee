@@ -90,7 +90,7 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
               #   .draw()
 
               visualization = d3plus.viz()
-                .dev(true)
+                .dev(false)
                 .data(data.data)
                 .type("network")
                 .container("#viz")
