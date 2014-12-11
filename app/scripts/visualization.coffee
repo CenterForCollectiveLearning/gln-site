@@ -132,7 +132,7 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
 
                 .edges(data.edges)
                 .edges(
-                  color: "#000"
+                  color: "#ccc"
                   size: "size"  # "Coocurrences"
                   opacity: 0.7
                 )

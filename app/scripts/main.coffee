@@ -1,4 +1,4 @@
-glnApp = angular.module('glnApp', ['ngRoute'])
+glnApp = angular.module('glnApp', ['ngRoute', 'datatables'])
 
 angular.module('glnApp').controller('navCtrl', ['$scope', '$location', ($scope, $location) ->
     $scope.links = [
@@ -36,6 +36,32 @@ angular.module('glnApp').controller('visualizationCtrl', ['$scope', '$routeParam
         pathList = $location.path().split('/')
         pathList[2] = d
         $location.path(pathList.join('/'))
+])
+
+angular.module('glnApp').run(['DTDefaultOptions', (DTDefaultOptions) ->
+    DTDefaultOptions.setDisplayLength(50)
+])
+
+angular.module('glnApp').controller('rankingCtrl', ['$scope', '$routeParams', '$location', 'DTOptionsBuilder', 'DTColumnBuilder', ($scope, $routeParams, $location, DTOptionsBuilder, DTColumnBuilder) ->
+    $scope.datasets = ['books', 'twitter', 'wikipedia']
+
+    if $routeParams.dataset then $scope.selectedDataset = $routeParams.dataset
+    else $scope.selectedDataset = $scope.datasets[0]
+
+    $scope.isActive = (d) -> (d is $scope.selectedDataset)
+    $scope.selectDataset = (d) ->
+        pathList = $location.path().split('/')
+        pathList[2] = d
+        $location.path(pathList.join('/'))
+
+    $scope.dtOptions = DTOptionsBuilder.fromSource('data/data.json')
+        .withPaginationType('full_numbers')
+        .withColVis()
+    $scope.dtColumns = [
+        DTColumnBuilder.newColumn('id').withTitle('ID'),
+        DTColumnBuilder.newColumn('firstName').withTitle('First name'),
+        DTColumnBuilder.newColumn('lastName').withTitle('Last name')
+    ];
 ])
 
 angular.module('glnApp').controller('aboutCtrl', ['$scope', ($scope) ->
@@ -94,7 +120,6 @@ angular.module('glnApp').directive('navigator', ($window, $document) ->
             scope.top = true
             angular.element($window).bind("scroll", ->
                 maxScroll = $document.height() - $window.innerHeight
-                console.log(this.pageYOffset)
                 if (this.pageYOffset > maxScroll - 300)
                     scope.top = false
                 else
