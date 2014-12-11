@@ -11,6 +11,22 @@ ul {
     }
 }
 
+@mixin grayscale($value) {
+    -webkit-filter: grayscale($value);
+    -moz-filter: grayscale($value);
+    -o-filter: grayscale($value);
+    -ms-filter: grayscale($value);
+    filter: grayscale($value);
+}
+
+@mixin opacity($trans) {
+    // -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$trans * 100})";
+    // filter: alpha(opacity=#{$trans * 100});
+    -moz-opacity: $trans;
+    -khtml-opacity: $trans;
+    opacity: $trans;
+}
+
 @mixin no-select {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -205,7 +221,7 @@ div.wrapper {
 div.dataset {
     z-index: 10;
     position: fixed;
-    top: 100px;
+    top: 120px;
     left: 22px;
     line-height: 40px;
 
@@ -410,3 +426,5 @@ div.video {
     
     border-top: 20px solid black;
 }
+
+@import '_about';

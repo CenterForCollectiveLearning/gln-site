@@ -1,0 +1,32 @@
+<div class="ranking-pane" ng-controller="visualizationCtrl">
+    <div class="dataset">
+     	<!-- <span class="arrow">↳</span> --><span class="label">Data Source:</span>    	
+    <ul>
+    		<li ng-repeat="dataset in datasets">
+    			<a ng-click="selectDataset(dataset)" ng-class="{'active':isActive(dataset)}">{{dataset}}</a>
+    		</li>
+    	</ul>
+    </div>
+    <div id="viz" visualization selected-dataset="selectedDataset">
+    </div>
+    <div class="desc">
+        <p ng-if="isActive('books')">Each node represents a language. Links connect languages according to the frequency of book translations. Node size represents the number of native and non-native speakers of a language.</p>
+        <p ng-if="isActive('twitter')">Twitter description. Node size represents the number of native and non-native speakers of a language.</p>
+        <p ng-if="isActive('wikipedia')">Wikipedia desciption. Node size represents the number of native and non-native speakers of a language.</p>
+
+
+     	<p>The position of a language in the Global Language Network is highly correlated with the number of globally famous people born in the territories associated with that language. We identify globally famous people using The MIT Media Lab’s <a href="http://pantheon.media.mit.edu" target="_blank">Pantheon project</a> and the list published in the book Human Accomplishments.</p>
+    
+     	<p>For details on the methodology and interpretation of the data see Ronen et al. Links that speak: the global language network and its association with global fame. PNAS Vol (Issue), pages (YEAR)</p>
+    </div>
+    <div class="navigator" navigator>    
+        <div class="to-bottom" ng-if="top" ng-click="scrollTo('bottom')">
+            Description  
+            <div class="arrow-down"></div>      
+        </div>
+        <div class="to-top" ng-if="!top" ng-click="scrollTo('top')">
+            <div class="arrow-up"></div>
+            Top of Page
+        </div>
+    </div>
+</div>

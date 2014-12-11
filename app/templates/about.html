@@ -1,13 +1,47 @@
-<div class="content">
+<div class="content about" ng-controller="aboutCtrl">
 	<div class="title">
 		About
 	</div>
 	<div class="text">
 		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+			The Global Language Network is a project from the Macro Connections group at the MIT Media Lab in collaboration with Northeastern University MoBS, Aix-Marseille Université, and Harvard University. We are an interdisciplinary team working to measure and understand the structure and implications of the global language networks.
 		</p>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-		</p>
+	</div>
+
+	<div class="title">
+		Team
+	</div>
+	<div class="text">
+		<div class="team-row">
+			<ul>
+				<li class="member" ng-repeat="member in firstRowMembers">
+					<span class="name">{{member.name}}</span>
+					<div class="affiliation">{{member.affiliation}}</div>
+					<div class="photo_container">
+						<img class="photo" src="assets/about/{{member.picture}}" />
+
+					</div>
+					<div class="info">
+						<span class="twitter"><a target="_blank" href="http://twitter.com/{{member.twitter}}">Twitter</a></span>
+						<span class="website"><a target="_blank" href="http://{{member.website}}">Personal Website</a></span>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="team-row">
+			<ul>
+				<li class="member" ng-repeat="member in secondRowMembers">
+					<span class="name">{{member.name}}</span>
+					<div class="affiliation">{{member.affiliation}}</div>
+					<div class="photo_container">
+						<img class="photo" src="assets/about/{{member.picture}}" />
+						<div class="info">
+							<span class="twitter"><a target="_blank" href="http://twitter.com/{{member.twitter}}">Twitter</a></span>
+							<span class="website"><a target="_blank" href="http://{{member.website}}">Personal Website</a></span>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>
