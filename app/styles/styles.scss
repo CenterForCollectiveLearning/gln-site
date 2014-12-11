@@ -131,7 +131,7 @@ html, body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     background-size: cover;
-    background: radial-gradient(white 70%, #ddd 95%) no-repeat center center fixed;
+    background: radial-gradient(white 70%, #eee 95%) no-repeat center center fixed;
 }
 
 header {
@@ -178,7 +178,7 @@ header {
                     text-transform: capitalize;
                     border-bottom: none;
                     @include nudge;
-                    &.active {
+                    &.active, &:hover {
                         border-bottom: 2px solid black;
                     }
                 }
@@ -233,7 +233,7 @@ div.dataset {
                 @include nudge;
                 border-bottom: none;
                 padding-bottom: 1px;
-                &.active {
+                &.active, &:hover {
                     border-bottom: 2px solid black;
                 }
             }
@@ -290,7 +290,11 @@ div.content {
     margin: 0 auto;
 
     div.title {
-        padding-top: 150px;
+        padding-top: 20px;
+        &:first-child {
+            padding-top: 150px;            
+        }
+
         text-align: center;
         font-size: 28px;
     }
@@ -356,13 +360,23 @@ footer {
 
         span.collaboration {
             vertical-align: top;
-            line-height: 60px;
-            padding-left: 25px;
+            line-height: 100px;
+            padding-left: 0px;
         }
 
         img {
-            height: 45px;
-            margin: 10px 0 10px 20px;
+            margin: 0 20px;
+            &.ml {
+                height: 55px;
+                margin-bottom: 20px;
+            }
+            &.amu {
+                height: 60px;
+                margin-bottom: 20px;
+            }
+            &.circle {
+                height: 100px;                
+            }
         }
     }
 }
@@ -370,6 +384,11 @@ footer {
 div.navigator {
     cursor: pointer;
     text-align: center;
+}
+
+div.video {
+    padding-top: 20px;
+    height: 0;
 }
 
 .arrow-up {
