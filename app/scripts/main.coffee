@@ -1,9 +1,5 @@
 glnApp = angular.module('glnApp', ['ngRoute'])
 
-angular.module('glnApp').config(function($resourceProvider) {
-  $resourceProvider.defaults.stripTrailingSlashes = false;
-});
-
 angular.module('glnApp').controller('navCtrl', ['$scope', '$location', ($scope, $location) ->
     $scope.links = [
         {route: '/', title: 'visualization'},
