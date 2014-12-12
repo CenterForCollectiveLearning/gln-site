@@ -28,11 +28,18 @@
             Top of Page
         </div>
     </div> -->
-    <div class="dataset">
+    <div class="datasets">
         <span class="label">Data Source</span>     
         <ul>
-            <li ng-repeat="dataset in datasets">
-                <a ng-click="selectDataset(dataset)" ng-class="{'active':isActive(dataset)}">{{dataset}}</a>
+            <li class="dataset" ng-repeat="dataset in datasets">
+                <div class="container" ng-click="selectDataset(dataset.name)" ng-class="{'active':isActive(dataset.name)}">
+                    <div class="icon">
+                        <i class="fa fa-{{dataset.icon}} icon"></i>  
+                    </div>
+                    <div ng-if="isActive(dataset.name)" class="label">
+                        {{dataset.name}}
+                    </div>
+                </div>
             </li>
         </ul>
     </div>

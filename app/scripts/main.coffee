@@ -23,11 +23,23 @@ angular.module('glnApp').controller('navCtrl', ['$scope', '$location', ($scope, 
 ])
 
 angular.module('glnApp').controller('visualizationCtrl', ['$scope', '$routeParams', '$location', ($scope, $routeParams, $location) ->
-    $scope.datasets = ['books', 'twitter', 'wikipedia']
+    $scope.datasets = [
+        {
+            name: 'books'
+            icon: 'book'
+        },
+        {
+            name: 'twitter'
+            icon: 'twitter'
+        },
+        {
+            name: 'wikipedia'
+            icon: 'wikipedia'
+        }
+    ]
 
     if $routeParams.dataset
         $scope.selectedDataset = $routeParams.dataset
-
     else
         $scope.selectedDataset = $scope.datasets[0]
 
@@ -43,7 +55,20 @@ angular.module('glnApp').run(['DTDefaultOptions', (DTDefaultOptions) ->
 ])
 
 angular.module('glnApp').controller('rankingCtrl', ['$scope', '$routeParams', '$location', 'DTOptionsBuilder', 'DTColumnBuilder', ($scope, $routeParams, $location, DTOptionsBuilder, DTColumnBuilder) ->
-    $scope.datasets = ['books', 'twitter', 'wikipedia']
+    $scope.datasets = [
+        {
+            name: 'books'
+            icon: 'book'
+        },
+        {
+            name: 'twitter'
+            icon: 'twitter'
+        },
+        {
+            name: 'wikipedia'
+            icon: 'wikipedia'
+        }
+    ]
 
     if $routeParams.dataset then $scope.selectedDataset = $routeParams.dataset
     else $scope.selectedDataset = $scope.datasets[0]
@@ -82,7 +107,7 @@ angular.module('glnApp').controller('aboutCtrl', ['$scope', ($scope) ->
         },
         {
             name: 'César Hidalgo'
-            picture: 'cesar_hidalgo.jpg'
+            picture: 'cesar_hidalgo.png'
             twitter: 'cesifoti'
             website: 'chidalgo.com'
             affiliation: 'MIT Media Lab'

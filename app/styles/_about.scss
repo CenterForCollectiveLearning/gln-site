@@ -12,8 +12,14 @@ div.about {
 	a.macro-link { 
 		font-weight: bold;
 	}
-	// div.team-row {
-	// 	margin-top: 20px;
+	div.team-row {
+		overflow: auto;
+		margin-top: 20px;
+
+		&:first-child {
+			margin-top: 0px;
+		}
+
 		ul {
 			margin-top: 20px;
 			float: left;
@@ -35,7 +41,7 @@ div.about {
 				}
 			}
 		}
-	// }
+	}
 	ul {
 		padding: 0;
 		li {

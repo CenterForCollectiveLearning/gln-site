@@ -1,5 +1,6 @@
 $almost-black: #111;
 $gray: #AEAEAE;
+$hover-black: rgba(0, 0, 0, 0.8);
 
 
 
@@ -9,6 +10,11 @@ ul {
     li {
         list-style-type: none;
     }
+}
+
+@mixin smallcaps {
+    font-size: 12px;
+    text-transform: uppercase;
 }
 
 @mixin grayscale($value) {
@@ -114,6 +120,8 @@ ul {
     font-stretch: normal;
     }
 
+@font-face { font-family: 'Linux Libertine'; font-style: normal; font-weight: 400; src: local('Linux Libertine'),url('//brick.a.ssl.fastly.net/fonts/linuxlibertine/400.woff') format('woff'); } .fa-wikipedia:before { font-family: 'Linux Libertine', 'Times New Roman', Times, serif; font-weight: 400; content: "W"; }
+
 // Universal Link Styling
 a {
     @include nudge;
@@ -197,12 +205,29 @@ header {
                     padding-bottom: 1px;
                     text-transform: capitalize;
                     border-bottom: none;
+                    border-radius: 2px;
+                    padding: 5px 8px;
                     @include nudge;
                     &.active, &:hover {
-                        border-bottom: 2px solid black;
+                        background-color: $hover-black;
+                        color: white;
                     }
                 }
             }
+        }
+    }
+}
+
+div.visualization-pane {
+    div.content {
+        div.title {
+            padding-top: 60px;
+        }
+
+        div.desc {
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-align: justify;
         }
     }
 }
@@ -222,10 +247,10 @@ div.wrapper {
     min-height: 100%;
 }
 
-div.dataset {
+div.datasets {
     z-index: 10;
     position: fixed;
-    top: 120px;
+    top: 180px;
     left: 22px;
     line-height: 40px;
 
@@ -238,23 +263,58 @@ div.dataset {
 
     ul {
         margin: 0;
-        float: right;
         padding-top: 6px;
+        padding-left: 4px;
 
         li {
+
+            position: relative;
+            margin-top: 2px;
+            background-color: rgba(0, 0, 0, 0.2);
+            // border: 1px solid black;
+            height: 80px;
+            width: 80px;
             padding: 0;
             line-height: 20px;
-            padding-top: 5px;
-            margin-right: 20px;
+            border-radius: 2px;
+            // padding-top: 5px;
+            // margin-right: 20px;
             // float: left;
             text-transform: capitalize;
+            cursor: pointer;
 
-            a {
-                @include nudge;
-                border-bottom: none;
-                padding-bottom: 1px;
+            div.container {
+                border-radius: 2px;
                 &.active, &:hover {
-                    border-bottom: 2px solid black;
+                    background-color: $hover-black;
+                    color: white;
+                    width: 80px;
+                    height: 80px;
+                }
+            }
+
+            div.icon {
+                width: 30px;
+                margin: 0px auto;
+                padding-top: 24px;
+                i {
+                    font-size: 30px;
+                }
+            }
+
+            div.label {
+                @include smallcaps;
+                position: absolute;
+                bottom: 2px;
+                text-align: center;
+                width: 100%;
+                a {
+                    @include nudge;
+                    border-bottom: none;
+                    padding-bottom: 1px;
+                    // &.active, &:hover {
+                    //     border-bottom: 2px solid black;
+                    // }
                 }
             }
         }
@@ -303,7 +363,6 @@ div#viz {
 div.content {
     // font-family: Neutral;
     font-weight: 300;
-    min-height: 400px;
     padding-bottom: 50px;
     width: 100%;
     max-width: 600px;
@@ -320,6 +379,7 @@ div.content {
     }
 
     div.text {
+        overflow: auto;
         margin-top: 20px;
 
         div.category {
@@ -389,22 +449,22 @@ footer {
 
         span.collaboration {
             vertical-align: top;
-            line-height: 100px;
+            line-height: 85px;
             padding-left: 0px;
         }
 
         img {
-            margin: 0 20px;
+            margin: 0 15px;
             &.ml {
-                height: 55px;
-                margin-bottom: 20px;
+                height: 50px;
+                margin-bottom: 12px;
             }
             &.amu {
-                height: 60px;
-                margin-bottom: 20px;
+                height: 50px;
+                margin-bottom: 14px;
             }
             &.circle {
-                height: 100px;                
+                height: 80px;                
             }
         }
     }
