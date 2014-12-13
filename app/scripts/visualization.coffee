@@ -28,10 +28,16 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
             wikipedia: 'wikipedia_formatted.json'
             books: 'books_formatted.json'
 
+          # When arrows: true
+          # datasetToOverlap =
+          #   twitter: 2.5
+          #   wikipedia: 2.5
+          #   books: 13.0
+
           datasetToOverlap =
-            twitter: 2.5
-            wikipedia: 2.5
-            books: 13.0
+            twitter: 1.0
+            wikipedia: 1.0
+            books: 7.0
 
           datasetToStats =
             twitter: ['Number of Tweets', 'Number of Users', 'Average Tweets per User', 'Percent of Total Users']
@@ -69,7 +75,6 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
               languagesToIDsMapping = {}
 
               for d in data.data
-                console.log(d)
                 id = d.id
                 langName = d["Language Name"]
                 languagesList.push(langName)
@@ -79,7 +84,6 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                 languagesToIDsMapping[langName] = id
 
               languagesToIDsCollection = _.sortBy(languagesToIDsCollection, (d) -> Object.keys(d)[0])
-              console.log(languagesToIDsCollection)
 
               visualization = d3plus.viz()
                 .dev(false)
@@ -88,7 +92,7 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                 .container("#viz")
                 .font(
                   family: "Helvetica"
-                  weight: 700
+                  weight: 600
                   color: "#000000"
                 )      
                 .text("Language Name")
@@ -122,10 +126,13 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                 )
                 .edges(data.edges)
                 .edges(
-                  arrows: true
-                  color: "#ccc"
-                  size: "coocurrences"
-                  opacity: 0.7
+                  arrows: false
+                  color: "#222"
+                  size: 
+                    scale: 1.0
+                    value: "coocurrences"
+                  opacity: "opacity"
+                  label: "coocurrences"
                   # size: 
                   #   min: 2
                   #   scale: 1.0

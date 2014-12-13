@@ -188,7 +188,7 @@ def main():
             temp_edge = edge['data']
             temp_edge['source'] = edge['data']['source']  # ['SourceLanguageName']
             temp_edge['target'] = edge['data']['target'] # ['TargetLanguageName']
-            temp_edge['opacity'] = edge['data']['Tstatistic'] / max_t
+            temp_edge['opacity'] = edge['data']['Tstatistic']
             # temp_edge['size'] = 1000000000 * float(edge['data']['Coocurrences']) / max_co
             temp_edge['coocurrences'] = edge['data']['Coocurrences']
             final_edges.append(temp_edge)
