@@ -9,7 +9,6 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
         $window.onresize = -> 
           scope.$apply()
 
-        # TODO Make resizing work
         # Resizing
         scope.$watch(( -> angular.element($window)[0].innerWidth ), ( -> console.log("Resizing"); scope.render(scope.selectedDataset)))
 
@@ -58,15 +57,15 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
 
             d3.json(dataset, (error, data) ->
               overlap = datasetToOverlap[selectedDataset]
-              console.log("OVERLAP", overlap)
 
               languagesList = []
               languagesToIDsCollection =[]
               languagesToIDsMapping = {}
 
               for d in data.data
+                console.log(d)
                 id = d.id
-                langName = d['Language Name']
+                langName = d["Language Name"]
                 languagesList.push(langName)
                 languageToIDMapping = {}
                 languageToIDMapping[langName] = id
@@ -74,38 +73,36 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                 languagesToIDsMapping[langName] = id
 
               languagesToIDsCollection = _.sortBy(languagesToIDsCollection, (d) -> Object.keys(d)[0])
-              # sortedLanguagesList = languagesList.sort(0)
-
-              # console.log(sortedLanguagesList)
+              console.log(languagesToIDsCollection)
 
               visualization = d3plus.viz()
-                .dev(true)
+                .dev(false)
                 .data(data.data)
                 .type("network")
                 .container("#viz")
                 .font(
-                  family: "Open Sans Condensed"#"Oswald"
+                  family: "Helvetica"
                   weight: 700
                   color: "#000000"
                 )      
                 .text("Language Name")
-                # .descs(
-                #   "Log(Number of Speakers)": "Test"                  
-                # )
-                .format({text: (text, key) ->
-                  text.toUpperCase()
-                })
+                .descs(
+                  "Number of Speakers (millions)": "Number of speakers of this language (both native and non-native) in the millions"                  
+                )
+                .format(
+                  text: (text, key) -> text.toUpperCase()
+                )
                 .legend(
                   text: "Family Name"
-                  # order:
-                  #   sort: "desc"
-                  #   value: "size"
+                  order:
+                    sort: "desc"
+                    value: "size"
                   size: 60
                 )
                 .labels(
                   padding: 0
                   value: true
-                  text: "name"
+                  text: "Language Code"
                   font:
                     transform: "uppercase"
                 )
@@ -121,7 +118,7 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                 .edges(
                   arrows: true
                   color: "#ccc"
-                  size: "size"
+                  size: "coocurrences"
                   opacity: 0.7
                   # size: 
                   #   min: 2
@@ -137,9 +134,8 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                   font:
                     color: "#FFF"
                 )
-                # .tooltip(["Language Name", "Family Name", "Log(Number of Speakers)", "Number of Speakers (millions)"])
+                .tooltip(["Family Name", "Number of Speakers (millions)", "GDP per Capita (dollars)", "Eigenvector Centrality"])
                 .background("transparent")
-                # .focus(languagesToIDsMapping['English'])
                 .id("id")
                 .color((d) ->
                   familyToColor[d["Family Name"]]
@@ -148,14 +144,13 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                     method: "size"
                     label: "Node Size"
                     type: "button"
-                    value: ["Number of Speakers (millions)", "Log(Number of Speakers)"]
+                    value: ["Number of Speakers (millions)", "GDP per Capita (dollars)", "Eigenvector Centrality"]
                   ,
                     method: "focus",
                     label: "Focus Language"
                     type: "drop"
                     value: languagesToIDsCollection
                 ])
-
                 .draw()
 
                 console.log(visualization.edges(Object))
