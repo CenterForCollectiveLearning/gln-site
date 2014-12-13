@@ -96,14 +96,14 @@ angular.module('glnApp').controller('aboutCtrl', ['$scope', ($scope) ->
             picture: 'shahar_ronen.png'
             twitter: 'ShRonen'
             website: 'shaharronen.com'
-            affiliation: 'MIT Media lab'
+            affiliation: 'MIT Media Lab'
         },
         {
             name: 'Kevin Hu'
             picture: 'kevin_hu.png'
             twitter: 'kevinzenghu'
             website: 'kevinzenghu.com'
-            affiliation: 'MIT Media lab'
+            affiliation: 'MIT Media Lab'
         },
         {
             name: 'César Hidalgo'

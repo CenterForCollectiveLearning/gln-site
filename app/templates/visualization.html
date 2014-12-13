@@ -7,7 +7,7 @@
                     <div class="icon">
                         <i class="fa fa-{{dataset.icon}} icon"></i>  
                     </div>
-                    <div ng-if="isActive(dataset.name)" class="label">
+                    <div ng-class="{'visible':isActive(dataset.name)}" class="label">
                         {{dataset.name}}
                     </div>
                 </div>

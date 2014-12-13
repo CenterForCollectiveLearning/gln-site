@@ -1,6 +1,7 @@
 $almost-black: #111;
 $gray: #AEAEAE;
 $hover-black: rgba(0, 0, 0, 0.8);
+$unhover-gray: rgba(0, 0, 0, 0.2);
 
 
 
@@ -17,13 +18,17 @@ ul {
     text-transform: uppercase;
 }
 
-@mixin grayscale($value) {
-    -webkit-filter: grayscale($value);
-    -moz-filter: grayscale($value);
-    -o-filter: grayscale($value);
-    -ms-filter: grayscale($value);
-    filter: grayscale($value);
+@function grayscale($value) {
+  @return #{ "grayscale(" + $value + ")" };
 }
+
+// @mixin grayscale($value) {
+//     -webkit-filter: #{ "grayscale(" + $value + ")" };
+//     -moz-filter: #{ "grayscale(" + $value + ")" };
+//     -o-filter: #{ "grayscale(" + $value + ")" };
+//     -ms-filter: #{ "grayscale(" + $value + ")" };
+//     filter: #{ "grayscale(" + $value + ")" };
+// }
 
 @mixin opacity($trans) {
     // -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$trans * 100})";
@@ -68,6 +73,7 @@ ul {
 
 @mixin opacity-transition { @include transition(opacity, 0.1s, ease-in) }
 @mixin border-transition { @include transition(border, 0.1s, ease-in) }
+@mixin color-transition { @include transition(color, 0.1s, ease-in) }
 @mixin background-transition { @include transition(background, 0.1s, ease-in) }
 
 @font-face {
@@ -124,7 +130,6 @@ ul {
 
 // Universal Link Styling
 a {
-    @include nudge;
     text-decoration: none !important;
     color: black;
     border-bottom: 1px solid black;
@@ -200,14 +205,13 @@ header {
             li {
                 line-height: 40px;
                 float: left;
-                margin-right: 30px;
+                margin-right: 8px;
                 a {
                     padding-bottom: 1px;
                     text-transform: capitalize;
                     border-bottom: none;
                     border-radius: 2px;
-                    padding: 5px 8px;
-                    @include nudge;
+                    padding: 5px 10px;
                     &.active, &:hover {
                         background-color: $hover-black;
                         color: white;
@@ -270,7 +274,7 @@ div.datasets {
 
             position: relative;
             margin-top: 2px;
-            background-color: rgba(0, 0, 0, 0.2);
+            background-color: $unhover-gray;
             // border: 1px solid black;
             height: 80px;
             width: 80px;
@@ -304,10 +308,13 @@ div.datasets {
 
             div.label {
                 @include smallcaps;
-                position: absolute;
-                bottom: 2px;
+                padding-top: 3px;
                 text-align: center;
                 width: 100%;
+                opacity: 0.0;
+                &.visible {
+                    opacity: 1.0;
+                }
                 a {
                     @include nudge;
                     border-bottom: none;
@@ -351,7 +358,7 @@ div.datasets {
 
 
 div#viz {
-    height: 100%;
+    height: 90%;
     width: 100%;
 }
 
@@ -379,6 +386,7 @@ div.content {
     }
 
     div.text {
+        text-align: justify;
         overflow: auto;
         margin-top: 20px;
 
@@ -391,6 +399,10 @@ div.content {
 
 // Data download
 div.data {
+    a {
+        @include nudge;
+    }
+
     div.category {
         padding-top: 15px;
         text-align: center;
@@ -443,13 +455,19 @@ footer {
     text-align: center;
     line-height: 22px;
 
+    a {
+        @include nudge;
+    }
+
     div.logos {
+        // border-top: 1px solid black;
+        // border-bottom: 1px solid black;
         margin-top: 20px;
         height: 50px;
 
         span.collaboration {
             vertical-align: top;
-            line-height: 85px;
+            line-height: 45px;
             padding-left: 0px;
         }
 
@@ -457,14 +475,12 @@ footer {
             margin: 0 15px;
             &.ml {
                 height: 50px;
-                margin-bottom: 12px;
             }
             &.amu {
                 height: 50px;
-                margin-bottom: 14px;
             }
             &.circle {
-                height: 80px;                
+                height: 50px;                
             }
         }
     }
@@ -475,9 +491,18 @@ div.navigator {
     text-align: center;
 }
 
+div.paper-page {
+    div.paper-title {
+        font-weight: bold;
+    }
+
+    a {
+        @include nudge;
+    }
+}
+
 div.video {
     padding-top: 20px;
-    height: 0;
 }
 
 .arrow-up {

@@ -30,9 +30,9 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
             books: 'books_formatted.json'
 
           datasetToOverlap =
-            twitter: 0.7
-            wikipedia: 0.7
-            books: 4.0
+            twitter: 2.5
+            wikipedia: 2.5
+            books: 13.0
 
           familyToColor = 
             'Afro-Asiatic': '#CC6680'
@@ -67,30 +67,19 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
               for d in data.data
                 id = d.id
                 langName = d['Language Name']
+                languagesList.push(langName)
                 languageToIDMapping = {}
                 languageToIDMapping[langName] = id
                 languagesToIDsCollection.push(languageToIDMapping)
                 languagesToIDsMapping[langName] = id
 
               languagesToIDsCollection = _.sortBy(languagesToIDsCollection, (d) -> Object.keys(d)[0])
+              # sortedLanguagesList = languagesList.sort(0)
 
-              # visualization = d3plus.viz()
-              #   .dev(true)
-              #   .data(data.data)
-              #   .type("rings")
-              #   .text("Lang_Name")
-              #   .container("#viz")
-              #   .size(
-              #     scale: d3.scale.linear()
-              #     value: "Log(Number of Speakers)"
-              #   )
-              #   #.nodes(data.nodes)
-              #   .edges(data.edges)
-              #   .focus(languagesToIDsMapping['French'])
-              #   .draw()
+              # console.log(sortedLanguagesList)
 
               visualization = d3plus.viz()
-                .dev(false)
+                .dev(true)
                 .data(data.data)
                 .type("network")
                 .container("#viz")
@@ -98,13 +87,11 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                   family: "Open Sans Condensed"#"Oswald"
                   weight: 700
                   color: "#000000"
-                  transform: "lowercase"
                 )      
-                .text("name")
+                .text("Language Name")
                 # .descs(
                 #   "Log(Number of Speakers)": "Test"                  
                 # )
-
                 .format({text: (text, key) ->
                   text.toUpperCase()
                 })
@@ -118,36 +105,45 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                 .labels(
                   padding: 0
                   value: true
+                  text: "name"
                   font:
                     transform: "uppercase"
                 )
                 .size(
-                  scale: d3.scale.linear()
-                  value: "Log(Number of Speakers)"
+                  # scale: d3.scale.linear()
+                  value: "Number of Speakers (millions)"
                 )
                 .nodes(data.nodes)
                 .nodes(
                   overlap: overlap
                 )
-
                 .edges(data.edges)
                 .edges(
+                  arrows: true
                   color: "#ccc"
-                  size: "size"  # "Coocurrences"
+                  size: "size"
                   opacity: 0.7
+                  # size: 
+                  #   min: 2
+                  #   scale: 1.0
+                  #   value: "size"
+
+                  # size:
+                  #   value: "size"
+                  # size: { value: "size", scaleExtent: 2.0 }
+                  # opacity: "opacity"
                 )
                 .tooltip(
-                  opacity: 1.0
                   font:
                     color: "#FFF"
                 )
-                .tooltip(["Language Name", "Family Name", "Log(Number of Speakers)", "Number of Speakers (millions)"])
+                # .tooltip(["Language Name", "Family Name", "Log(Number of Speakers)", "Number of Speakers (millions)"])
                 .background("transparent")
                 # .focus(languagesToIDsMapping['English'])
                 .id("id")
                 .color((d) ->
                   familyToColor[d["Family Name"]]
-                )       
+                )
                 .ui([
                     method: "size"
                     label: "Node Size"
@@ -161,6 +157,8 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                 ])
 
                 .draw()
+
+                console.log(visualization.edges(Object))
             )
           , 200)
     )

@@ -95,7 +95,7 @@ gulp.task('watch', ->
   refresh.listen(LIVERELOADPORT)
 
   gulp.watch sources.data, ['data']
-  gulp.watch sources.sass, ['sass']
+  gulp.watch 'app/styles/*.scss', ['sass']
   gulp.watch sources.assets, ['assets']
   gulp.watch sources.html, ['html']
   gulp.watch sources.coffee, ['coffee', 'lint']
