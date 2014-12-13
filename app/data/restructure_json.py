@@ -9,6 +9,47 @@ import json
 def main():
     types = ['books', 'twitter', 'wikipedia']
 
+    # Expressions
+    books_stats_f = open('public/datasets_stats_books.tsv')
+    twitter_stats_f = open('public/datasets_stats_twitter.tsv')
+    wiki_stats_f = open('public/datasets_stats_wikipedia.tsv')
+
+    books_stats_f.readline()
+    twitter_stats_f.readline()
+    wiki_stats_f.readline()
+
+    books_stats_dict = {}
+    for l in books_stats_f:
+        l_list = l.strip().split('\t')
+        code, num_from, num_to = l_list[2], l_list[3], l_list[4]
+        books_stats_dict[code] = {
+            'from': num_from, 
+            'to': num_to
+        }
+
+    twitter_stats_dict = {}
+    for l in twitter_stats_f:
+        l_list = l.strip().split('\t')
+        print len(l_list)
+        code, tweets, users, average, percent = l_list[2], l_list[3], l_list[4], l_list[5], l_list[6]
+        twitter_stats_dict[code] = {
+            'tweets': tweets,
+            'users': users,
+            'average': average,
+            'percent': percent
+        }
+
+    wiki_stats_dict = {}
+    for l in wiki_stats_f:
+        l_list = l.strip().split('\t')
+        code, edits, editors, average, percent = l_list[2], l_list[3], l_list[4], l_list[5], l_list[6]
+        wiki_stats_dict[code] = {
+            'edits': edits,
+            'editors': editors,
+            'average': average,
+            'percent': percent
+        }
+
     # Create dictionaries mapping language to centrality, gdp per capita, and population
     cent_f = open('public/centralities_by_language.tsv')
     gdp_pc_pop_f = open('public/gdp_pc_population_by_language.tsv')
@@ -76,7 +117,6 @@ def main():
             lang_name = raw_datum['Lang_Name']
             if lang_name == '':
                 lang_name = lang_code_to_name[lang_code]
-            print lang_code, lang_name
 
             temp_datum = {}
             temp_datum['id'] = id
@@ -86,6 +126,42 @@ def main():
             temp_datum['Number of Speakers (millions)'] = lang_code_to_pop.get(lang_code, 0)
             temp_datum['GDP per Capita (dollars)'] = lang_code_to_gdp_pc.get(lang_code, 0)
             temp_datum['Eigenvector Centrality'] = lang_code_to_cent[lang_code][type]
+
+
+            if type is "books":
+                if lang_code in books_stats_dict:
+                    temp_datum['Translations From'] = books_stats_dict[lang_code]['from'].replace(',', '')
+                    temp_datum['Translations To'] = books_stats_dict[lang_code]['to'].replace(',', '')
+                else:
+                    temp_datum['Translations From'] = 0
+                    temp_datum['Translations To'] = 0
+
+            if type is "twitter":
+                if lang_code in twitter_stats_dict:
+                    temp_datum['Number of Tweets'] = twitter_stats_dict[lang_code]['tweets'].replace(',', '')
+                    temp_datum['Number of Users'] = twitter_stats_dict[lang_code]['users'].replace(',', '')
+                    temp_datum['Average Tweets per User'] = twitter_stats_dict[lang_code]['average'].replace(',', '')
+                    temp_datum['Percent of Total Users'] = twitter_stats_dict[lang_code]['percent'].replace(',', '')
+                else:
+                    temp_datum['Number of Tweets'] = 0
+                    temp_datum['Number of Users'] = 0
+                    temp_datum['Average Tweets per User'] = 0
+                    temp_datum['Percent of Total Users'] = 0
+
+
+            if type is "wikipedia":
+                if lang_code in wiki_stats_dict:
+                    temp_datum['Number of Edits'] = wiki_stats_dict[lang_code]['edits'].replace(',', '')
+                    temp_datum['Number of Editors'] = wiki_stats_dict[lang_code]['editors'].replace(',', '')
+                    temp_datum['Average Edits per Editor'] = wiki_stats_dict[lang_code]['average'].replace(',', '')
+                    temp_datum['Percent of Total Editors'] = wiki_stats_dict[lang_code]['percent'].replace(',', '')
+                else:
+                    temp_datum['Number of Edits'] = 0
+                    temp_datum['Number of Editors'] = 0
+                    temp_datum['Average Edits per Editor'] = 0
+                    temp_datum['Percent of Total Editors'] = 0
+
+
             final_data.append(temp_datum)
 
         # Iterate through edges

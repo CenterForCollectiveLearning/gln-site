@@ -33,6 +33,11 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
             wikipedia: 2.5
             books: 13.0
 
+          datasetToStats =
+            twitter: ['Number of Tweets', 'Number of Users', 'Average Tweets per User', 'Percent of Total Users']
+            wikipedia: ['Number of Edits', 'Number of Editors', 'Average Edits per Editor', 'Percent of Total Editors']
+            books: ['Translations From', 'Translations To']
+
           familyToColor = 
             'Afro-Asiatic': '#CC6680'
             'Altaic': '#9CFF9C'
@@ -57,6 +62,7 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
 
             d3.json(dataset, (error, data) ->
               overlap = datasetToOverlap[selectedDataset]
+              datasetStats = datasetToStats[selectedDataset]
 
               languagesList = []
               languagesToIDsCollection =[]
@@ -89,9 +95,9 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                 .descs(
                   "Number of Speakers (millions)": "Number of speakers of this language (both native and non-native) in the millions"                  
                 )
-                .format(
-                  text: (text, key) -> text.toUpperCase()
-                )
+                # .format(
+                #   text: (text, key) -> text.toUpperCase()
+                # )
                 .legend(
                   text: "Family Name"
                   order:
@@ -134,7 +140,7 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                   font:
                     color: "#FFF"
                 )
-                .tooltip(["Family Name", "Number of Speakers (millions)", "GDP per Capita (dollars)", "Eigenvector Centrality"])
+                .tooltip(["Family Name", "Number of Speakers (millions)", "GDP per Capita (dollars)", "Eigenvector Centrality"].concat(datasetStats))
                 .background("transparent")
                 .id("id")
                 .color((d) ->
