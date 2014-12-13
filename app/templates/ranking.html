@@ -1,10 +1,10 @@
 <div class="ranking-pane content" ng-controller="rankingCtrl">
 
     <div class="title">
-        Rankings
+        {{selectedDataset | capitalize}} Rankings
     </div>
-    <div class="desc">
-        <table datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="row-border hover">
+    <div class="rankings">
+        <table datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="stripe row-border hover">
     </div>
 <!--     <div id="viz" visualization selected-dataset="selectedDataset">
     </div> -->
@@ -36,7 +36,7 @@
                     <div class="icon">
                         <i class="fa fa-{{dataset.icon}} icon"></i>  
                     </div>
-                    <div ng-if="isActive(dataset.name)" class="label">
+                    <div ng-class="{'visible':isActive(dataset.name)}" class="label">
                         {{dataset.name}}
                     </div>
                 </div>

@@ -30,7 +30,6 @@ def main():
     twitter_stats_dict = {}
     for l in twitter_stats_f:
         l_list = l.strip().split('\t')
-        print len(l_list)
         code, tweets, users, average, percent = l_list[2], l_list[3], l_list[4], l_list[5], l_list[6]
         twitter_stats_dict[code] = {
             'tweets': tweets,
@@ -195,9 +194,13 @@ def main():
 
         final_object = {'data': final_data, 'nodes': final_nodes, 'edges': final_edges}
 
-        output = open('%s_formatted.json' % type, 'w')
-        output.write(json.dumps(final_object))
-        output.close()
+        network_output = open('%s_network.json' % type, 'w')
+        network_output.write(json.dumps(final_object))
+        network_output.close()
+
+        table_output = open('%s_table.json' % type, 'w')
+        table_output.write(json.dumps(final_data))
+        table_output.close()
 
 
 if __name__ == '__main__':

@@ -10,23 +10,21 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
           scope.$apply()
 
         # Resizing
-        scope.$watch(( -> angular.element($window)[0].innerWidth ), ( -> console.log("Resizing"); scope.render(scope.selectedDataset)))
+        scope.$watch(( -> angular.element($window)[0].innerWidth ), ( -> scope.render(scope.selectedDataset)))
 
         scope.$watchCollection("[selectedDataset]", ((newData) ->
           scope.render(newData[0])
         ), true)
 
         scope.render = (selectedDataset) ->
-          console.log("selectedDataset in directive", selectedDataset)
           unless (selectedDataset)
             return
-          console.log("Rendering", selectedDataset)
 
           dataPrefix = "data/"
           datasetToFile =
-            twitter: 'twitter_formatted.json'
-            wikipedia: 'wikipedia_formatted.json'
-            books: 'books_formatted.json'
+            twitter: 'twitter_network.json'
+            wikipedia: 'wikipedia_network.json'
+            books: 'books_network.json'
 
           # When arrows: true
           # datasetToOverlap =
@@ -99,9 +97,6 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                 .descs(
                   "Number of Speakers (millions)": "Number of speakers of this language (both native and non-native) in the millions"                  
                 )
-                # .format(
-                #   text: (text, key) -> text.toUpperCase()
-                # )
                 .legend(
                   text: "Family Name"
                   order:
@@ -133,15 +128,6 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                     value: "coocurrences"
                   opacity: "opacity"
                   label: "coocurrences"
-                  # size: 
-                  #   min: 2
-                  #   scale: 1.0
-                  #   value: "size"
-
-                  # size:
-                  #   value: "size"
-                  # size: { value: "size", scaleExtent: 2.0 }
-                  # opacity: "opacity"
                 )
                 .tooltip(
                   font:
@@ -165,8 +151,6 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                     value: languagesToIDsCollection
                 ])
                 .draw()
-
-                console.log(visualization.edges(Object))
             )
           , 200)
     )
