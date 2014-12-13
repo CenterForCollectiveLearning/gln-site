@@ -32061,13 +32061,12 @@ module.exports = function(vars) {
 
   var o = vars.edges.opacity.value;
   var o_type = typeof o;
-
   if (vars.edges.opacity.changed && o_type === "string") {
-    var opacityScale = vars.edges.opacity.scale.value
-      .domain(d3.extent(edges, function(d){
-        return d[o];
-      }))
-      .range([vars.edges.opacity.min.value,1]);
+    opacityScale = vars.edges.opacity.scale.value
+    .domain(d3.extent(edges, function(d){
+      return d[o];
+    }))
+    .range([vars.edges.opacity.min.value,1]);
   }
 
   //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -32086,7 +32085,6 @@ module.exports = function(vars) {
   // Styling of Lines
   //----------------------------------------------------------------------------
   function style(edges) {
-
     var marker = vars.edges.arrows.value;
 
     edges
