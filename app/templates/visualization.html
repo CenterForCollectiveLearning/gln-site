@@ -21,15 +21,21 @@
             Description
         </div>
         <div class="desc">
-            <p ng-if="isActive('books')">Each node represents a language. Links connect languages according to the frequency of book translations. Node size represents the number of native and non-native speakers of a language. Edge size represents the number of translations, and edge opacity represents the statistical significance of this number.</p>
+            <p ng-if="isActive('books')">
+                In the Global Language Network (GLN) each node represents a language and links connect languages that are likely to be co-spoken. In the example above, languages are connected according to the frequency of book translations. Node sizes represent the number of native and non-native speakers of a language and edge thickness represents the number of translations from one language to another.
+            </p>
 
-            <p ng-if="isActive('twitter')">Each node represents a language. Two languages are connected when users that tweet in one language are also significantly more likely to tweet in another language. Node size represents the number of native and non-native speakers of a language. Edge size represents the number of users tweeting in both languages, and edge opacity represents the statistical significance of this number.</p>
+            <p ng-if="isActive('twitter')">
+                In the Global Language Network (GLN) each node represents a language and links connect languages that are likely to be co-spoken. In the example above, two languages are connected when users that tweet in one language are also significantly more likely to tweet in another language. Node size represents the number of native and non-native speakers of a language and edge thickness represents the number of users tweeting in both languages.
+            </p>
 
-            <p ng-if="isActive('wikipedia')">Each node represents a language. Two languages are connected when users that edit an article in one Wikipedia language edition are significantly more likely to also edit an article in another language edition. Node size represents the number of native and non-native speakers of a language, the GDP per capita of speakers of that language, or the eigenvector centrality of that language. Edge size represents the number of editors editing an article in both languages editions, and edge opacity represents the statistical significance of this number.</p>
+            <p ng-if="isActive('wikipedia')">
+                In the Global Language Network (GLN) each node represents a language and links connect languages that are likely to be co-spoken. In the example above, two languages are connected when users that edit an article in one Wikipedia language edition are significantly more likely to also edit an article in another language edition. Node size represents the number of native and non-native speakers of a language and edge thickness represents the number of number of editors editing an article in both
+            </p>
 
             <p>The position of a language in the Global Language Network is highly correlated with the number of globally famous people born in the territories associated with that language. We identify globally famous people using The MIT Media Lab’s <a href="http://pantheon.media.mit.edu" target="_blank">Pantheon project</a> and the list published in the book Human Accomplishments.</p>
 
-            <p>For details on the methodology and interpretation of the data see Ronen et al. <a href="http://www.pnas.org/cgi/doi/10.1073/pnas.1410931111" target="_blank">Links that speak: the global language network and its association with global fame</a>. PNAS (2014), 10.1073/pnas.1410931111.</p>
+            <p>For details on the methodology and interpretation of the data see Ronen et al. <a href="http://www.pnas.org/cgi/doi/10.1073/pnas.1410931111" target="_blank">Links that speak: the global language network and its association with global fame</a>. Proceedings of the National Academy of Sciences (PNAS) (2014), 10.1073/pnas.1410931111.</p>
         </div>
     </div>
     <div class="navigator" navigator>    

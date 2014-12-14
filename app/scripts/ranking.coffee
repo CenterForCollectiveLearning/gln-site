@@ -139,7 +139,7 @@ angular.module('glnApp').controller('rankingCtrl', ['$scope', '$routeParams', '$
         $location.path(pathList.join('/'))
 
     $scope.dtOptions = DTOptionsBuilder.fromSource('data/' + datasetToFile[d])
-        .withOption('order', [[4, 'desc']])
+        .withOption('order', [[3, 'desc']])
         .withPaginationType('full_numbers')
         .withColVis()
 ])

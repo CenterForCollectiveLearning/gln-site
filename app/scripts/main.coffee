@@ -2,8 +2,8 @@ glnApp = angular.module('glnApp', ['ngRoute', 'datatables'])
 
 angular.module('glnApp').controller('navCtrl', ['$scope', '$location', ($scope, $location) ->
     $scope.links = [
-        {route: '/', title: 'visualization'},
-        {route: '/ranking', title: 'ranking'},
+        {route: '/', title: 'visualizations'},
+        {route: '/rankings', title: 'rankings'},
         {route: '/paper', title: 'paper'},
         {route: '/data', title: 'data'},
         {route: '/about', title: 'about'},
@@ -13,7 +13,7 @@ angular.module('glnApp').controller('navCtrl', ['$scope', '$location', ($scope, 
     $scope.isActive = (route) ->
         path = $location.path();
         if (route == '/')
-            if (path.split('/')[1] == 'visualization')
+            if (path.split('/')[1] == 'visualizations')
                 return true
         else 
             if (path.substr(0, route.length) == route)

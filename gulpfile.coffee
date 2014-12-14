@@ -22,7 +22,8 @@ sources =
   sass: 'app/styles/styles.scss'
   coffee: 'app/scripts/*.coffee'
   assets: 'app/assets/**/*'
-  lib: 'app/scripts/lib/*.js'
+  libjs: 'app/scripts/lib/*.js'
+  libcss: 'app/styles/lib/*.css'
   data: 'app/data/**/*'
 
 destinations =
@@ -30,7 +31,8 @@ destinations =
   html: 'dist/'
   js: 'dist/'
   assets: 'dist/assets'
-  lib: 'dist/lib/'
+  libjs: 'dist/lib/'
+  libcss: 'dist/lib'
   data: 'dist/data/'
 
 # TASKS -------------------------------------------------------------
@@ -85,8 +87,12 @@ gulp.task('assets', ->
   gulp.src(sources.assets).pipe(gulp.dest(destinations.assets))
 )
 
-gulp.task('lib', ->
-  gulp.src(sources.lib).pipe(gulp.dest(destinations.lib))
+gulp.task('libjs', ->
+  gulp.src(sources.libjs).pipe(gulp.dest(destinations.libjs))
+)
+
+gulp.task('libcss', ->
+  gulp.src(sources.libcss).pipe(gulp.dest(destinations.libcss))
 )
 
 # Watched tasks
@@ -99,7 +105,8 @@ gulp.task('watch', ->
   gulp.watch sources.assets, ['assets']
   gulp.watch sources.html, ['html']
   gulp.watch sources.coffee, ['coffee', 'lint']
-  gulp.watch sources.lib, ['lib']
+  gulp.watch sources.libjs, ['libjs']
+  gulp.watch sources.libcss, ['libcss']
 
   gulp.watch('./dist/**').on('change', refresh.changed);
  )
@@ -112,7 +119,7 @@ gulp.task('clean', ->
 
 # Build sequence
 gulp.task('build', ->
-  runSequence('clean', ['coffee', 'sass', 'data', 'html', 'lib', 'assets'])
+  runSequence('clean', ['coffee', 'sass', 'data', 'html', 'libjs', 'libcss', 'assets'])
 )
 
 gulp.task('default', [

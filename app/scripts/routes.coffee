@@ -1,15 +1,15 @@
 angular.module('glnApp').config(['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
   $routeProvider
     .when('/', 
-      redirectTo: '/visualization/books'
+      redirectTo: '/visualizations/books'
     )
-    .when('/visualization/:dataset',
+    .when('/visualizations/:dataset',
       templateUrl: './templates/visualization.html'
     )
-    .when('/ranking',
-      redirectTo: '/ranking/books'
+    .when('/rankings',
+      redirectTo: '/rankings/books'
     )
-    .when('/ranking/:dataset',
+    .when('/rankings/:dataset',
       templateUrl: './templates/ranking.html'
     )
     .when('/paper',

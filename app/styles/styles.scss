@@ -76,55 +76,72 @@ ul {
 @mixin color-transition { @include transition(color, 0.1s, ease-in) }
 @mixin background-transition { @include transition(background, 0.1s, ease-in) }
 
+/* latin */
 @font-face {
-    font-family: 'DIN';
-    src: url('assets/DINLight.ttf') format('ttf'), url('assets/DINLight.woff') format('woff');
+  font-family: 'Metrophobic';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Metrophobic'), url('assets/fonts/metrophobic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
 @font-face {
-    font-family: 'Karbon';
-    src: url('assets/karbon-medium-webfont.woff') format('woff');
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Condensed'), url('assets/fonts/open_sans_condensed.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
-@font-face {
-    font-family: 'Karbon';
-    src: url('assets/karbon-light-webfont.woff') format('woff');
-    font-weight: 300;
-}
+// @font-face {
+//     font-family: 'DIN';
+//     src: url('assets/DINLight.ttf') format('ttf'), url('assets/DINLight.woff') format('woff');
+// }
 
-@font-face {
-    font-family: 'Karbon';
-    src: url('assets/karbon-regular-webfont.woff') format('woff');
-    font-weight: normal;
-}
+// @font-face {
+//     font-family: 'Karbon';
+//     src: url('assets/karbon-medium-webfont.woff') format('woff');
+// }
 
-@font-face {
-    font-family: 'Karbon';
-    src: url('assets/karbon-semibold-webfont.woff') format('woff');
-    font-weight: bold;
-}
+// @font-face {
+//     font-family: 'Karbon';
+//     src: url('assets/karbon-light-webfont.woff') format('woff');
+//     font-weight: 300;
+// }
 
-@font-face {
-    font-family: Neutral;
-    src: url("assets/neutral-regular-3.woff");
-    font-style: normal;
-    font-weight: 300;
-    font-stretch: normal;
-    }
-@font-face {
-    font-family: Neutral;
-    src: url("assets/neutral-medium-3.woff");
-    font-style: normal;
-    font-weight: 400;
-    font-stretch: normal;
-    }
-@font-face {
-    font-family: Neutral;
-    src: url("assets/neutral-bold-3.woff");
-    font-style: normal;
-    font-weight: bold;
-    font-stretch: normal;
-    }
+// @font-face {
+//     font-family: 'Karbon';
+//     src: url('assets/karbon-regular-webfont.woff') format('woff');
+//     font-weight: normal;
+// }
+
+// @font-face {
+//     font-family: 'Karbon';
+//     src: url('assets/karbon-semibold-webfont.woff') format('woff');
+//     font-weight: bold;
+// }
+
+// @font-face {
+//     font-family: Neutral;
+//     src: url("assets/neutral-regular-3.woff");
+//     font-style: normal;
+//     font-weight: 300;
+//     font-stretch: normal;
+//     }
+// @font-face {
+//     font-family: Neutral;
+//     src: url("assets/neutral-medium-3.woff");
+//     font-style: normal;
+//     font-weight: 400;
+//     font-stretch: normal;
+//     }
+// @font-face {
+//     font-family: Neutral;
+//     src: url("assets/neutral-bold-3.woff");
+//     font-style: normal;
+//     font-weight: bold;
+//     font-stretch: normal;
+//     }
 
 @font-face { font-family: 'Linux Libertine'; font-style: normal; font-weight: 400; src: local('Linux Libertine'),url('//brick.a.ssl.fastly.net/fonts/linuxlibertine/400.woff') format('woff'); } .fa-wikipedia:before { font-family: 'Linux Libertine', 'Times New Roman', Times, serif; font-weight: 400; content: "W"; }
 
@@ -180,7 +197,7 @@ header {
         padding-top: 16px;
         padding-left: 20px;
         div.title {
-            font-family: "Open Sans Condensed";
+            font-family: "Open Sans Condensed", Helvetica, Arial, Sans Serif;
             text-transform: uppercase;
             font-size: 40px;
             font-weight: bold;
@@ -224,6 +241,7 @@ header {
 
 div.visualization-pane {
     div.content {
+        max-width: 800px;
         div.title {
             padding-top: 60px;
         }
@@ -236,15 +254,18 @@ div.visualization-pane {
     }
 }
 
+div.paper-page {
+    p.paper {
+        text-align: left;
+    }
+}
+
 div.navigator {
     position: fixed;
     bottom: 10px;
     right: 10px;
 }
 
-@media only screen and (max-width : 500px) {
-
-}
 
 div.wrapper {
     width: 100%;
@@ -357,16 +378,12 @@ div.datasets {
 
 
 div#viz {
-    height: 90%;
+    height: 85%;
     width: 100%;
 }
 
-// rect.d3plus_data {
-//     -webkit-filter: drop-shadow( -5px -5px 100px #F00 );
-//             filter: drop-shadow( -5px -5px 5px #000 ); /* Same syntax as box-shadow */
-// }
-
 div.content {
+     line-height: 22px;
     // font-family: Neutral;
     font-weight: 300;
     padding-bottom: 50px;
@@ -436,9 +453,9 @@ div.press {
 }
 
 div.desc {
-    line-height: 22px;
+   
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     margin: 60px auto 70px auto;
 }
 
@@ -446,44 +463,6 @@ div.d3plus_tooltip {
     color: white !important;
 }
 
-footer {
-    border-top: 1px solid $gray;
-    margin: 0 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    text-align: center;
-    line-height: 22px;
-
-    a {
-        @include nudge;
-    }
-
-    div.logos {
-        // border-top: 1px solid black;
-        // border-bottom: 1px solid black;
-        margin-top: 20px;
-        height: 50px;
-
-        span.collaboration {
-            vertical-align: top;
-            line-height: 45px;
-            padding-left: 0px;
-        }
-
-        img {
-            margin: 0 15px;
-            &.ml {
-                height: 50px;
-            }
-            &.amu {
-                height: 50px;
-            }
-            &.circle {
-                height: 50px;                
-            }
-        }
-    }
-}
 
 div.navigator {
     cursor: pointer;
@@ -495,6 +474,10 @@ div.paper-page {
         font-weight: bold;
     }
 
+    div.paper {
+        text-align: left;
+    }
+
     a {
         @include nudge;
     }
@@ -504,6 +487,7 @@ div.video {
     padding-top: 20px;
 }
 
+// Widgets
 .arrow-up {
     margin: 0 auto;
     width: 0; 
@@ -524,5 +508,102 @@ div.video {
     border-top: 20px solid black;
 }
 
+@media only screen and (max-width : 500px) {
+    header {
+        background-color: #eee;
+        div.title-paper {
+            padding-left: 0;
+            width: 100%;
+            div.title {
+                font-size: 30px;
+                text-align: center;
+            }
+        }
+         -webkit-box-shadow: 0 0 15px 15px #eee !important;
+        -moz-box-shadow: 0 0 15px 15px #eee !important;
+        box-shadow: 0 0 15px 15px #eee !important;
+
+    }
+
+    div.content {
+        padding-top: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    div.datasets {
+        z-index: 10;
+        position: fixed;
+        top: 40%;
+        left: 22px;
+        line-height: 40px;
+
+        span.arrow {
+            padding-right: 10px;
+        }
+        span.label {
+            padding-right: 20px;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 4px;
+
+            li {
+
+                position: relative;
+                margin-top: 2px;
+                background-color: $unhover-gray;
+                height: 40px;
+                width: 40px;
+                padding: 0;
+                line-height: 20px;
+                border-radius: 2px;
+                text-transform: capitalize;
+                cursor: pointer;
+
+            div.container {
+                border-radius: 2px;
+                &.active, &:hover {
+                    background-color: $hover-black;
+                    color: white;
+                }
+            }
+
+            div.icon {
+                width: 30px;
+                margin: 0px auto;
+                padding-top: 24px;
+                i {
+                    font-size: 30px;
+                }
+            }
+
+            div.label {
+                @include smallcaps;
+                padding-top: 3px;
+                text-align: center;
+                width: 100%;
+                opacity: 0.0;
+                &.visible {
+                    opacity: 1.0;
+                }
+                a {
+                    @include nudge;
+                    border-bottom: none;
+                    padding-bottom: 1px;
+                    // &.active, &:hover {
+                    //     border-bottom: 2px solid black;
+                    // }
+                }
+            }
+        }
+    }
+}
+
+}
+
+
 @import '_about';
+@import '_footer';
 @import '_ranking';

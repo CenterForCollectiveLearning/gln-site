@@ -1,0 +1,133 @@
+footer {
+	border-top: 1px solid $gray;		
+
+    margin: 0 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    line-height: 22px;
+
+    div.more-projects {
+    	margin: 0 100px;
+    	margin-top: 20px;
+    	padding-top: 20px;
+    }
+
+    a {
+        @include nudge;
+    }
+
+    div.logos {
+        margin-top: 20px;
+        height: 50px;
+
+        span.collaboration {
+            vertical-align: top;
+            line-height: 45px;
+            padding-left: 0px;
+        }
+
+        img {
+            margin: 0 15px;
+            &.ml {
+                height: 50px;
+            }
+            &.amu {
+                height: 50px;
+            }
+            &.circle {
+                height: 50px;                
+            }
+        }
+    }
+
+	div.more-projects {
+		height: 85px;
+		a {
+			border: none;
+		}
+
+
+		div.more-from {
+			border-bottom: none;
+			padding-bottom: 0;
+			width: 800px;
+			margin: 0px auto 10px auto;
+			color: black;
+
+			span {
+				margin-bottom: 10px;
+			}
+
+			span.more-macro {
+				float: left;
+				text-align: left;
+			}
+			span.more-d3 {
+				float: right;
+				text-align: left;
+			}
+		}
+		div.projects {
+			width: 800px;
+			clear: both;
+			margin: 0 auto;
+
+			a {
+				float: left;
+				&:hover {
+					text-decoration: none;
+				}
+
+				&.left {
+					margin-right: 20px;
+				}
+
+				&.dataviva {
+					float: right;
+				}
+			}
+			div{
+				border: 1px solid black;
+				border-radius: 3px;
+				height: 45px;
+				width: 140px;
+				text-align: center;
+
+				filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+				filter: gray; /* IE6-9 */
+				-webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+
+				-webkit-transition: 0.25s all ease-in; 
+				-o-transition: 0.25s all ease-in;
+				-moz-transition: 0.25s all ease-in;
+				transition: 0.25s all ease-in;
+
+				&:hover {
+					filter: grayscale(0);
+					-webkit-filter: grayscale(0);
+				}
+
+				&.oec {
+					background-image: url("assets/oec_icon.png")
+				}
+
+				&.pantheon {
+					background-image: url("assets/pantheon_icon.png")
+				}
+
+				&.immersion {
+					background-image: url("assets/immersion_icon.png");
+				}
+
+				&.place-pulse {
+					background-image: url("assets/place_pulse_icon.png");
+				}
+
+				&.dataviva {
+					background-image: url("assets/dataviva_icon.png");
+				}
+			}
+		}
+	}
+}
