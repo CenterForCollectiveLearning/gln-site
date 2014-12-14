@@ -9,6 +9,11 @@
 }
 
 div.about {
+	p {
+		a {
+			@include nudge;
+		}
+	}
 	a.macro-link { 
 		font-weight: bold;
 	}

@@ -1,0 +1,70 @@
+div.data-page {
+
+
+    a {
+        @include nudge;
+    }
+
+    div.category {
+        padding-top: 15px;
+        text-align: center;
+        border-bottom: 1px solid black;
+    }
+
+    div.table {
+        div.label {
+            padding-top: 10px;
+        }
+
+        div.row {
+            padding-top: 4px;
+            padding-left: 20px;
+        }
+
+        a {
+            padding-top: 1px;
+            padding-bottom: 1px;
+        }
+    }
+
+    div.pantheon {
+    	height: 50px;
+    	width: 240px;
+    	span {
+    		padding-left: 20px;
+    		line-height: 50px;
+    	}
+
+        a {
+        	&:hover {
+        		text-decoration: none;
+        	}
+        }
+        div{
+        	float: right;
+        	border: 1px solid black;
+        	border-radius: 3px;
+        	height: 45px;
+        	width: 140px;
+        	text-align: center;
+
+			filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+			filter: gray; /* IE6-9 */
+			-webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+
+			-webkit-transition: 0.25s all ease-in; 
+			-o-transition: 0.25s all ease-in;
+			-moz-transition: 0.25s all ease-in;
+			transition: 0.25s all ease-in;
+
+			&:hover {
+				filter: grayscale(0);
+				-webkit-filter: grayscale(0);
+			}
+
+			&.pantheon {
+				background-image: url("assets/pantheon_icon.png")
+			}
+		}
+	}
+}
