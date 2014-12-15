@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="187.102px" height="121px" viewBox="0 0 187.102 121" enable-background="new 0 0 187.102 121" xml:space="preserve">
+<g id="Layer_1">
+	<text transform="matrix(1 0 0 1 1.5474 7.7061)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">Link Weight and Color</text>
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-9.935820e-06" y1="27.5635" x2="187.1025" y2="27.5635">
+		<stop  offset="0" style="stop-color:#CCCCCC"/>
+		<stop  offset="1" style="stop-color:#000000"/>
+	</linearGradient>
+	<rect y="22.882" fill="url(#SVGID_1_)" width="187.102" height="9.363"/>
+	<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="1.1768" y1="61.2901" x2="187.1025" y2="61.2901">
+		<stop  offset="0" style="stop-color:#CCCCCC"/>
+		<stop  offset="1" style="stop-color:#000000"/>
+	</linearGradient>
+	<polygon fill="url(#SVGID_2_)" points="187.102,66.818 1.177,66.818 1.177,66.818 187.102,55.762 	"/>
+	<text transform="matrix(1 0 0 1 66.6455 31.2451)" fill="#FFFFFF" font-family="'Arial'" font-weight="bold" font-size="11">t-statistic</text>
+	<text transform="matrix(1 0 0 1 59.9473 75.0879)"><tspan x="0" y="0" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">co-occurrences</tspan><tspan x="-27" y="10.8" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">(users, editors, translations)</tspan></text>
+	<g>
+		<text transform="matrix(1 0 0 1 173.1025 42.7939)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">10</text>
+	</g>
+	<g>
+		<text transform="matrix(1 0 0 1 0.1758 42.7939)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">2.59</text>
+	</g>
+	<text transform="matrix(1 0 0 1 0 78.0195)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">min</text>
+	<text transform="matrix(1 0 0 1 0 99.8594)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">6</text>
+	<text transform="matrix(1 0 0 1 0 109.4297)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">6</text>
+	<text transform="matrix(1 0 0 1 0 119)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">6</text>
+	<text transform="matrix(1 0 0 1 76.064 99.8594)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">twitter</text>
+	<text transform="matrix(1 0 0 1 68.7876 109.4297)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">wikipedia</text>
+	<text transform="matrix(1 0 0 1 52.8901 119)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">book translations</text>
+	<text transform="matrix(1 0 0 1 153.335 99.8594)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">994,682</text>
+	<text transform="matrix(1 0 0 1 158.3232 109.4297)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">49,637</text>
+	<text transform="matrix(1 0 0 1 153.335 119)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">183,329</text>
+	<text transform="matrix(1 0 0 1 164.335 78.0205)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">max</text>
+</g>
+<g id="Layer_2">
+</g>
+</svg>

@@ -24,104 +24,145 @@ angular.module('glnApp').controller('rankingCtrl', ['$scope', '$routeParams', '$
         books: 'books_table.json'
 
     datasetToOptions = 
-        twitter: ["Language Name", "Language Code", "Family Name", "Eigenvector Centrality", "Number of Tweets", "Number of Users", "Average Tweets per User", "Percent of Total Users", "Number of Speakers (millions)", "GDP per Capita (dollars)"]
-        wikipedia: ["Language Name", "Language Code", "Family Name", "Eigenvector Centrality", "Number of Edits", "Number of Editors", "Percent of Total Editors", "Average Edits per Editor", "Number of Speakers (millions)", "GDP per Capita (dollars)"]
-        books: ["Language Name", "Language Code", "Family Name", "Eigenvector Centrality", "Translations From", "Translations To", "Number of Speakers (millions)", "GDP per Capita (dollars)"]
-
-    datasetToOptions = 
         twitter: [
                 name: "Language Name"
                 title: "Language"
+                visible: true
             , 
                 name: "Language Code"
                 title: "Code"
+                visible: false
             ,   
                 name: "Family Name"
                 title: "Family"
+                visible: false
             ,
                 name: "Eigenvector Centrality"
                 title: "Centrality"
+                visible: true
             ,
                 name: "Number of Tweets"
                 title: "Tweets"
+                visible: true
             ,
                 name: "Number of Users"
                 title: "Users"
+                visible: true
             ,
                 name: "Average Tweets per User"
                 title: "Avg. tweets/user" 
+                visible: false
             ,
-                name: "Percent of Total Users"
-                title: "% Total Users"
+                name: "Number of Multilinguals"
+                title: "Multilinguals"
+                visible: true
+            ,
+                name: "Average Tweets per Multilingual"
+                title: "Avg. tweets/ml"
+                visible: false
             ,
                 name: "Number of Speakers (millions)"
                 title: "Speakers (M)"
+                visible: true
             , 
                 name: "GDP per Capita (dollars)"
                 title: "GDP per cap. ($)"
+                visible: true
             ],
         wikipedia: [
                 name: "Language Name"
                 title: "Language"
+                visible: true
             , 
                 name: "Language Code"
                 title: "Code"
+                visible: false
             ,   
                 name: "Family Name"
                 title: "Family"
+                visible: false
             ,
                 name: "Eigenvector Centrality"
                 title: "Centrality"
+                visible: true
             ,
                 name: "Number of Edits"
                 title: "Edits"
+                visible: true
             ,
                 name: "Number of Editors"
                 title: "Editors"
+                visible: true
             ,
                 name: "Average Edits per Editor"
                 title: "Avg. edits/editor" 
+                visible: false
             ,
-                name: "Percent of Total Editors"
-                title: "% Total Editors"
+                name: "Number of Multilinguals"
+                title: "Multilinguals"
+                visible: true
+            ,
+                name: "Average Tweets per Multilingual"
+                title: "Avg. tweets/ml"
+                visible: false
             ,
                 name: "Number of Speakers (millions)"
                 title: "# Speakers (M)"
+                visible: true
             , 
                 name: "GDP per Capita (dollars)"
                 title: "GDP per cap. ($)"
+                visible: true
             ],
         books: [
                 name: "Language Name"
                 title: "Language"
+                visible: true
             , 
                 name: "Language Code"
                 title: "Code"
+                visible: false
             ,   
                 name: "Family Name"
                 title: "Family"
+                visible: false
             ,
                 name: "Eigenvector Centrality"
                 title: "Centrality"
+                visible: true
             ,
                 name: "Translations From"
                 title: "Translations From"
+                visible: true
             ,
                 name: "Translations To"
                 title: "Translations To"
+                visible: true
+            ,
+                name: "Out Degree"
+                title: "Out Degree"
+                visible: false
+            ,
+                name: "In Degree"
+                title: "In Degree"
+                visible: false
             ,
                 name: "Number of Speakers (millions)"
                 title: "Speakers (M)"
+                visible: true
             , 
                 name: "GDP per Capita (dollars)"
                 title: "GDP per cap. ($)"
+                visible: true
             ]
 
     colsToDtColumns = (cols) ->
-        console.log(cols)
         DtColumns = []
         for col in cols
-            DtColumns.push(DTColumnBuilder.newColumn(col.name).withTitle(col.title))
+            colBuilder = DTColumnBuilder.newColumn(col.name).withTitle(col.title)
+            unless col.visible
+                colBuilder = colBuilder.notVisible()
+            DtColumns.push(colBuilder)
         return DtColumns
 
     if $routeParams.dataset

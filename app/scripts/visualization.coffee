@@ -38,9 +38,9 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
             books: 7.0
 
           datasetToStats =
-            twitter: ['Number of Tweets', 'Number of Users', 'Average Tweets per User', 'Percent of Total Users']
-            wikipedia: ['Number of Edits', 'Number of Editors', 'Average Edits per Editor', 'Percent of Total Editors']
-            books: ['Translations From', 'Translations To']
+            twitter: ['Number of Tweets', 'Number of Users', 'Average Tweets per User', 'Number of Multilinguals', 'Average Tweets per Multilingual']
+            wikipedia: ['Number of Edits', 'Number of Editors', 'Average Edits per Editor', 'Number of Multilinguals', 'Average Tweets per Multilingual']
+            books: ['Translations From', 'Translations To', 'Out Degree', 'In Degree']
 
           familyToColor = 
             'Afro-Asiatic': '#CC6680'
@@ -89,8 +89,8 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                 .type("network")
                 .container("#viz")
                 .font(
-                  family: "Helvetica"
-                  weight: 600
+                  family: 'Arial'
+                  weight: 'bold'
                   color: "#000000"
                 )      
                 .text("Language Name")
@@ -99,10 +99,11 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
                 )
                 .legend(
                   text: "Family Name"
-                  order:
-                    sort: "desc"
-                    value: "size"
+                  # order:
+                  #   sort: "desc"
+                  #   value: "size"
                   size: 60
+                  value: false
                 )
                 .labels(
                   padding: 0

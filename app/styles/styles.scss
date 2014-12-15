@@ -80,70 +80,19 @@ ul {
 @font-face {
   font-family: 'Metrophobic';
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   src: local('Metrophobic'), url('assets/fonts/metrophobic.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
 @font-face {
-  font-family: 'Open Sans Condensed';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Open Sans Condensed'), url('assets/fonts/open_sans_condensed.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+    font-family: 'Open Sans Condensed';
+    font-style: normal;
+    font-weight: bold;
+    src: url('assets/fonts/OpenSans-CondBold.ttf') format('truetype');
 }
 
-// @font-face {
-//     font-family: 'DIN';
-//     src: url('assets/DINLight.ttf') format('ttf'), url('assets/DINLight.woff') format('woff');
-// }
-
-// @font-face {
-//     font-family: 'Karbon';
-//     src: url('assets/karbon-medium-webfont.woff') format('woff');
-// }
-
-// @font-face {
-//     font-family: 'Karbon';
-//     src: url('assets/karbon-light-webfont.woff') format('woff');
-//     font-weight: 300;
-// }
-
-// @font-face {
-//     font-family: 'Karbon';
-//     src: url('assets/karbon-regular-webfont.woff') format('woff');
-//     font-weight: normal;
-// }
-
-// @font-face {
-//     font-family: 'Karbon';
-//     src: url('assets/karbon-semibold-webfont.woff') format('woff');
-//     font-weight: bold;
-// }
-
-// @font-face {
-//     font-family: Neutral;
-//     src: url("assets/neutral-regular-3.woff");
-//     font-style: normal;
-//     font-weight: 300;
-//     font-stretch: normal;
-//     }
-// @font-face {
-//     font-family: Neutral;
-//     src: url("assets/neutral-medium-3.woff");
-//     font-style: normal;
-//     font-weight: 400;
-//     font-stretch: normal;
-//     }
-// @font-face {
-//     font-family: Neutral;
-//     src: url("assets/neutral-bold-3.woff");
-//     font-style: normal;
-//     font-weight: bold;
-//     font-stretch: normal;
-//     }
-
-@font-face { font-family: 'Linux Libertine'; font-style: normal; font-weight: 400; src: local('Linux Libertine'),url('//brick.a.ssl.fastly.net/fonts/linuxlibertine/400.woff') format('woff'); } .fa-wikipedia:before { font-family: 'Linux Libertine', 'Times New Roman', Times, serif; font-weight: 400; content: "W"; }
+@font-face { font-family: 'Linux Libertine'; font-style: normal; font-weight: 400; src: local('Linux Libertine'),url('assets/fonts/linux_libertine.woff') format('woff'); } .fa-wikipedia:before { font-family: 'Linux Libertine', 'Times New Roman', Times, serif; font-weight: 400; content: "W"; }
 
 // Universal Link Styling
 a {
@@ -174,6 +123,7 @@ html, body {
     margin: 0;
     padding: 0;
     background-color: white; // black; // $almost-black;
+
     color: black;
     font-size: 16px;
     font-family: Metrophobic, Neutral, Karbon, 'Helvetica', Arial, Sans Serif;
@@ -256,6 +206,16 @@ div.visualization-pane {
             text-align: justify;
         }
     }
+
+    div.legend {
+        padding-top: 20px;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 550px;
+        img.right {
+            float: right;
+        }
+    }
 }
 
 div.paper-page {
@@ -279,15 +239,16 @@ div.wrapper {
 div.datasets {
     z-index: 10;
     position: fixed;
-    top: 250px;
+    top: 30%;
     left: 22px;
     line-height: 40px;
+    text-align: center;
 
     span.arrow {
         padding-right: 10px;
     }
     span.label {
-        padding-right: 20px;
+        text-align: center;
     }
 
     ul {

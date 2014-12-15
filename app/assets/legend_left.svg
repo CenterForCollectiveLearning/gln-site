@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="280.25px" height="121px" viewBox="0 0 280.25 121" enable-background="new 0 0 280.25 121" xml:space="preserve">
+<g id="Layer_1">
+	<text transform="matrix(1 0 0 1 0 7.7061)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">Language Family</text>
+	<text transform="matrix(1 0 0 1 410.1949 7.7061)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">Link Weight and Color</text>
+	<rect x="0.049" y="24.893" fill="#D87D93" width="8.456" height="16.911"/>
+	<rect x="0.049" y="50.625" fill="#AAFBAC" width="8.456" height="16.911"/>
+	<rect x="88.927" y="24.893" fill="#C4FDFF" width="8.456" height="16.911"/>
+	<rect x="88.927" y="50.626" fill="#AB56FF" width="8.456" height="16.91"/>
+	<rect x="88.927" y="76.357" fill="#F9E700" width="8.456" height="16.911"/>
+	<rect x="88.927" y="102.089" fill="#878AFF" width="8.456" height="16.911"/>
+	<rect x="198.499" y="24.894" fill="#FF7E79" width="8.456" height="16.91"/>
+	<rect x="198.499" y="51.104" fill="#A9A9A9" width="8.455" height="16.911"/>
+	<rect x="198.499" y="77.289" fill="#ED926C" width="8.455" height="16.911"/>
+	<rect x="198.499" y="102.089" fill="#FEFB00" width="8.455" height="16.911"/>
+	<rect x="233.085" y="102.088" fill="#AAADFF" width="8.455" height="16.912"/>
+	<rect x="0.049" y="76.357" fill="#5EA660" width="8.456" height="16.911"/>
+	<rect x="0.049" y="102.089" fill="#FFA0FF" width="8.456" height="16.911"/>
+	<text transform="matrix(1 0 0 1 11.5269 36.8618)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">Afro-Asiatic</text>
+	<text transform="matrix(1 0 0 1 11.5269 62.5942)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">Altaic</text>
+	<text transform="matrix(1 0 0 1 11.5269 88.3257)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">Amerindian</text>
+	<text transform="matrix(1 0 0 1 11.5269 114.0581)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">Austronesian</text>
+	<text transform="matrix(1 0 0 1 100.4526 36.8618)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">Caucasian</text>
+	<text transform="matrix(1 0 0 1 100.4526 62.5938)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">Creoles &amp; pidgins</text>
+	<text transform="matrix(1 0 0 1 100.4526 88.3262)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">Dravidian</text>
+	<text transform="matrix(1 0 0 1 100.4526 114.0581)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">Indo-European</text>
+	<text transform="matrix(1 0 0 1 213.5249 36.8618)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">Niger-Congo</text>
+	<text transform="matrix(1 0 0 1 213.5249 62.5942)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">Other</text>
+	<text transform="matrix(1 0 0 1 213.5249 88.3257)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">Sino-Tibetan</text>
+	<text transform="matrix(1 0 0 1 213.5249 114.0581)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">Tai</text>
+	<text transform="matrix(1 0 0 1 244.6108 114.0571)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">Uralic</text>
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="408.6475" y1="27.5635" x2="595.75" y2="27.5635">
+		<stop  offset="0" style="stop-color:#CCCCCC"/>
+		<stop  offset="1" style="stop-color:#000000"/>
+	</linearGradient>
+	<rect x="408.648" y="22.882" fill="url(#SVGID_1_)" width="187.102" height="9.363"/>
+	<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="409.8243" y1="61.2901" x2="595.75" y2="61.2901">
+		<stop  offset="0" style="stop-color:#CCCCCC"/>
+		<stop  offset="1" style="stop-color:#000000"/>
+	</linearGradient>
+	<polygon fill="url(#SVGID_2_)" points="595.75,66.818 409.824,66.818 409.824,66.818 595.75,55.762 	"/>
+	<text transform="matrix(1 0 0 1 475.293 31.2451)" fill="#FFFFFF" font-family="'Arial'" font-weight="bold" font-size="11">t-statistic</text>
+	<text transform="matrix(1 0 0 1 468.5948 75.0879)"><tspan x="0" y="0" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">co-occurrences</tspan><tspan x="-27" y="10.8" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">(users, editors, translations)</tspan></text>
+	<g>
+		<text transform="matrix(1 0 0 1 581.7501 42.7939)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">10</text>
+	</g>
+	<g>
+		<text transform="matrix(1 0 0 1 408.8233 42.7939)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">2.59</text>
+	</g>
+	<text transform="matrix(1 0 0 1 408.6475 78.0195)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">min</text>
+	<text transform="matrix(1 0 0 1 408.6475 99.8594)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">6</text>
+	<text transform="matrix(1 0 0 1 408.6475 109.4297)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">6</text>
+	<text transform="matrix(1 0 0 1 408.6475 119)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">6</text>
+	<text transform="matrix(1 0 0 1 484.7115 99.8594)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">twitter</text>
+	<text transform="matrix(1 0 0 1 477.4351 109.4297)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">wikipedia</text>
+	<text transform="matrix(1 0 0 1 461.5377 119)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">book translations</text>
+	<text transform="matrix(1 0 0 1 561.9825 99.8594)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">994,682</text>
+	<text transform="matrix(1 0 0 1 566.9708 109.4297)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">49,637</text>
+	<text transform="matrix(1 0 0 1 561.9825 119)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="9">183,329</text>
+	<text transform="matrix(1 0 0 1 572.9825 78.0205)" fill="#444444" font-family="'Arial'" font-weight="bold" font-size="11">max</text>
+</g>
+<g id="Layer_2">
+</g>
+</svg>

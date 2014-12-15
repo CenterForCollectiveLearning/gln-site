@@ -10,9 +10,9 @@ def main():
     types = ['books', 'twitter', 'wikipedia']
 
     # Expressions
-    books_stats_f = open('public/datasets_stats_books.tsv')
-    twitter_stats_f = open('public/datasets_stats_twitter.tsv')
-    wiki_stats_f = open('public/datasets_stats_wikipedia.tsv')
+    books_stats_f = open('public/dataset_stats_books.tsv')
+    twitter_stats_f = open('public/dataset_stats_twitter.tsv')
+    wiki_stats_f = open('public/dataset_stats_wikipedia.tsv')
 
     books_stats_f.readline()
     twitter_stats_f.readline()
@@ -20,33 +20,39 @@ def main():
 
     books_stats_dict = {}
     for l in books_stats_f:
-        l_list = l.strip().split('\t')
-        code, num_from, num_to = l_list[2], l_list[3], l_list[4]
+        x = l.strip().split('\t')
+        code, num_from, num_to, out_degree, in_degree = x[1], x[2], x[3], x[4], x[5]
         books_stats_dict[code] = {
             'from': num_from, 
-            'to': num_to
+            'to': num_to,
+            'out_degree': out_degree,
+            'in_degree': in_degree,
         }
 
     twitter_stats_dict = {}
     for l in twitter_stats_f:
-        l_list = l.strip().split('\t')
-        code, tweets, users, average, percent = l_list[2], l_list[3], l_list[4], l_list[5], l_list[6]
+        x = l.strip().split('\t')
+        code, tweets, users, avg_user, tweets_ml, ml, avg_ml  = x[1], x[2], x[3], x[4], x[5], x[6], x[7]
         twitter_stats_dict[code] = {
             'tweets': tweets,
             'users': users,
-            'average': average,
-            'percent': percent
+            'average': avg_user,
+            'tweets_ml': tweets_ml,
+            'ml': ml,
+            'avg_ml': avg_ml
         }
 
     wiki_stats_dict = {}
     for l in wiki_stats_f:
-        l_list = l.strip().split('\t')
-        code, edits, editors, average, percent = l_list[2], l_list[3], l_list[4], l_list[5], l_list[6]
+        x = l.strip().split('\t')
+        code, edits, editors, avg_editor, edits_ml, ml, avg_ml = x[1], x[2], x[3], x[4], x[5], x[6], x[7]
         wiki_stats_dict[code] = {
             'edits': edits,
             'editors': editors,
-            'average': average,
-            'percent': percent
+            'average': avg_editor,
+            'edits_ml': edits_ml,
+            'ml': ml,
+            'avg_ml': avg_ml
         }
 
     # Create dictionaries mapping language to centrality, gdp per capita, and population
@@ -117,13 +123,20 @@ def main():
             if lang_name == '':
                 lang_name = lang_code_to_name[lang_code]
 
+            pop = lang_code_to_pop.get(lang_code, '0')
+            gdp_pc = lang_code_to_gdp_pc.get(lang_code, '0')
+            if pop is '0':
+                pop = 0
+            if gdp_pc is '0':
+                gdp_pc = 0
+
             temp_datum = {}
             temp_datum['id'] = id
             temp_datum['Language Code'] = lang_code.upper()
             temp_datum['Language Name'] = lang_name
             temp_datum['Family Name'] = raw_datum['Primary_Family_Name']
-            temp_datum['Number of Speakers (millions)'] = lang_code_to_pop.get(lang_code, 0)
-            temp_datum['GDP per Capita (dollars)'] = lang_code_to_gdp_pc.get(lang_code, 0)
+            temp_datum['Number of Speakers (millions)'] = pop
+            temp_datum['GDP per Capita (dollars)'] = gdp_pc
             temp_datum['Eigenvector Centrality'] = lang_code_to_cent[lang_code][type]
 
 
@@ -131,21 +144,28 @@ def main():
                 if lang_code in books_stats_dict:
                     temp_datum['Translations From'] = books_stats_dict[lang_code]['from'].replace(',', '')
                     temp_datum['Translations To'] = books_stats_dict[lang_code]['to'].replace(',', '')
+                    temp_datum['Out Degree'] = books_stats_dict[lang_code]['out_degree'].replace(',', '')
+                    temp_datum['In Degree'] = books_stats_dict[lang_code]['in_degree'].replace(',', '')
+              
                 else:
                     temp_datum['Translations From'] = 0
                     temp_datum['Translations To'] = 0
+                    temp_datum['Out Degree'] = 0
+                    temp_datum['In Degree'] = 0
 
             if type is "twitter":
                 if lang_code in twitter_stats_dict:
                     temp_datum['Number of Tweets'] = twitter_stats_dict[lang_code]['tweets'].replace(',', '')
                     temp_datum['Number of Users'] = twitter_stats_dict[lang_code]['users'].replace(',', '')
                     temp_datum['Average Tweets per User'] = twitter_stats_dict[lang_code]['average'].replace(',', '')
-                    temp_datum['Percent of Total Users'] = twitter_stats_dict[lang_code]['percent'].replace(',', '')
+                    temp_datum['Number of Multilinguals'] = twitter_stats_dict[lang_code]['ml'].replace(',', '')
+                    temp_datum['Average Tweets per Multilingual'] = twitter_stats_dict[lang_code]['avg_ml'].replace(',', '')
                 else:
                     temp_datum['Number of Tweets'] = 0
                     temp_datum['Number of Users'] = 0
                     temp_datum['Average Tweets per User'] = 0
-                    temp_datum['Percent of Total Users'] = 0
+                    temp_datum['Number of Multilinguals'] = 0
+                    temp_datum['Average Tweets per Multilingual'] = 0
 
 
             if type is "wikipedia":
@@ -153,12 +173,14 @@ def main():
                     temp_datum['Number of Edits'] = wiki_stats_dict[lang_code]['edits'].replace(',', '')
                     temp_datum['Number of Editors'] = wiki_stats_dict[lang_code]['editors'].replace(',', '')
                     temp_datum['Average Edits per Editor'] = wiki_stats_dict[lang_code]['average'].replace(',', '')
-                    temp_datum['Percent of Total Editors'] = wiki_stats_dict[lang_code]['percent'].replace(',', '')
+                    temp_datum['Number of Multilinguals'] = wiki_stats_dict[lang_code]['ml'].replace(',', '')
+                    temp_datum['Average Tweets per Multilingual'] = wiki_stats_dict[lang_code]['avg_ml'].replace(',', '')
                 else:
                     temp_datum['Number of Edits'] = 0
                     temp_datum['Number of Editors'] = 0
                     temp_datum['Average Edits per Editor'] = 0
-                    temp_datum['Percent of Total Editors'] = 0
+                    temp_datum['Number of Multilinguals'] = 0
+                    temp_datum['Average Tweets per Multilingual'] = 0
 
 
             final_data.append(temp_datum)
