@@ -468,7 +468,12 @@ div.video {
             padding: 0 20px;
         }
     }
+
+    div.legend {
+        display: none;
+    }
 }
+
 
 @media only screen and (max-width : 500px) {
     header {
@@ -485,6 +490,10 @@ div.video {
         -moz-box-shadow: 0 0 15px 15px #eee !important;
         box-shadow: 0 0 15px 15px #eee !important;
 
+    }
+
+    div#viz {
+        margin-top: 150px;
     }
 
     div.content {
@@ -563,6 +572,12 @@ div.video {
     }
 }
 
+}
+
+@media only screen and (max-width : 600px) {
+    div.navigator {
+        display: none;
+    }
 }
 
 
