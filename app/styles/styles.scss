@@ -277,8 +277,6 @@ div.datasets {
                 &.active, &:hover {
                     background-color: $hover-black;
                     color: white;
-                    width: 80px;
-                    height: 80px;
                 }
             }
 
@@ -544,29 +542,15 @@ div.video {
             div.icon {
                 width: 30px;
                 margin: 0px auto;
-                padding-top: 24px;
+                padding-top: 7px;
+                padding-bottom: 3px;
                 i {
                     font-size: 30px;
                 }
             }
 
             div.label {
-                @include smallcaps;
-                padding-top: 3px;
-                text-align: center;
-                width: 100%;
-                opacity: 0.0;
-                &.visible {
-                    opacity: 1.0;
-                }
-                a {
-                    @include nudge;
-                    border-bottom: none;
-                    padding-bottom: 1px;
-                    // &.active, &:hover {
-                    //     border-bottom: 2px solid black;
-                    // }
-                }
+                display: none;
             }
         }
     }
