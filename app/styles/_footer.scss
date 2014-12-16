@@ -196,9 +196,18 @@ footer {
 
 @media only screen and (max-width : $breakpoint-500) {
 	footer {
-		text-align: justify;
-		div.more-from {
-			margin-top: 20px;
+		div.more-projects {
+			&.first {
+				display: none;
+			}
+			div.projects {
+				a {
+					width: 100%;
+					div {
+						margin: 10px auto;
+					}
+				}
+			}
 		}
 	}
 }
