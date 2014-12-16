@@ -202,7 +202,7 @@ div.sharing-options {
     right: 20px;
     div.label {
         text-align: center;
-        padding-bottom: 2px;
+        padding-bottom: 5px;
     }
     div.share {
         margin-right: 2px;
@@ -221,7 +221,7 @@ div.sharing-options {
         div.icon {
             width: 18px;
             margin: 0 auto;
-            padding-top: 8px; 
+            padding-top: 9px; 
             font-size: 15px;           
 
             &.fb {
@@ -292,6 +292,7 @@ div.datasets {
     ul {
         margin: 0;
         padding-left: 4px;
+        margin-top: -5px;
 
         li {
 
