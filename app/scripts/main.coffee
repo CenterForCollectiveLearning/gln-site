@@ -28,7 +28,7 @@ angular.module('glnApp').controller('sharingCtrl', ['$scope', ($scope) ->
         height = 400
         left   = ($(window).width()  - width)  / 2
         top    = ($(window).height() - height) / 2  # encodeURIComponent(location.href)
-        url    = "https://plus.google.com/share?url=" + encodeURIComponent(location.href)
+        url    = "https://plus.google.com/share?url=" + "http://language.media.mit.edu"
         opts   = 'status=1' +
                ',width='  + width  +
                ',height=' + height +
@@ -43,7 +43,7 @@ angular.module('glnApp').controller('sharingCtrl', ['$scope', ($scope) ->
         height = 400
         left   = ($(window).width()  - width)  / 2
         top    = ($(window).height() - height) / 2  # encodeURIComponent(location.href)
-        url    = "http://facebook.com/sharer/sharer.php?u=" + encodeURIComponent(location.href)
+        url    = "http://facebook.com/sharer/sharer.php?u=" + "http://language.media.mit.edu"
         opts   = 'status=1' +
                ',width='  + width  +
                ',height=' + height +
@@ -59,7 +59,7 @@ angular.module('glnApp').controller('sharingCtrl', ['$scope', ($scope) ->
         height = 400
         left   = ($(window).width()  - width)  / 2
         top    = ($(window).height() - height) / 2
-        url    = "http://www.twitter.com/intent/tweet?text=" + question + "&url=" + encodeURIComponent(location.href)
+        url    = "http://www.twitter.com/intent/tweet?text=" + question + "&url=" + "http://language.media.mit.edu"
         opts   = 'status=1' +
                ',width='  + width  +
                ',height=' + height +
