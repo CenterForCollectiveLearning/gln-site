@@ -1,13 +1,3 @@
-// TODO Make
-
-.white-bg {
-	background-color: white;
-}
-
-.black-border {
-	border: 1px solid black;
-}
-
 div.about {
 	p {
 		a {
@@ -148,8 +138,26 @@ section.description {
 	margin: 1em 0 2em 0;
 }
 
-@media only screen and (max-width : 500px) {
-	li.member {
-		width: 100%;
+@media only screen and (max-width : $breakpoint-600) {
+	div.about {
+		div.team-row {
+			ul {
+				li.member {
+					width: 50%;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width : $breakpoint-500) {
+	div.about {
+		div.team-row {
+			ul {
+				li.member {
+					width: 100%;
+				}
+			}
+		}
 	}
 }

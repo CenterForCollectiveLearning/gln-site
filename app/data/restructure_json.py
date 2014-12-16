@@ -185,32 +185,12 @@ def main():
 
             final_data.append(temp_datum)
 
-        # Iterate through edges
-        min_co = sys.maxint
-        max_co = -sys.maxint - 1
-
-        min_t = sys.maxint
-        max_t = -sys.maxint - 1
-        for edge in edges:
-            t = edge['data']['Tstatistic']
-            if t > max_t:
-                max_t = t
-            if t < min_t:
-                min_t = t
-
-            co = edge['data']['Coocurrences']
-            if co > max_co:
-                max_co = co
-            if co < min_co:
-                min_co = co
-
 
         for edge in edges:
-            temp_edge = edge['data']
+            temp_edge = {}
             temp_edge['source'] = edge['data']['source']  # ['SourceLanguageName']
             temp_edge['target'] = edge['data']['target'] # ['TargetLanguageName']
             temp_edge['opacity'] = edge['data']['Tstatistic']
-            # temp_edge['size'] = 1000000000 * float(edge['data']['Coocurrences']) / max_co
             temp_edge['coocurrences'] = edge['data']['Coocurrences']
             final_edges.append(temp_edge)
 

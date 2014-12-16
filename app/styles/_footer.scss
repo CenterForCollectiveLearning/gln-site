@@ -18,13 +18,21 @@ footer {
     }
 
     div.logos {
-        margin-top: 20px;
-        height: 50px;
+    	width: 100%;
+    	max-width: 800px;
+    	margin: 20px auto 0 auto;
+    	padding-bottom: 20px;
+        border-bottom: 1px solid $gray;
 
-        span.collaboration {
+        div.collaboration {
+        	display: inline;
             vertical-align: top;
             line-height: 45px;
             padding-left: 0px;
+        }
+
+        div.collaborators {
+        	display: inline;
         }
 
         img {
@@ -136,29 +144,61 @@ footer {
 	}
 }
 
-@media only screen and (max-width : 600px) {
-    footer {
-        span.collaboration {
-            display: none;
-        }
-        div.logos {
-            img {
-                display: block;
-                margin: 0 auto;
-                margin-top: 20px;
-            }
-        }
-        div.more-projects {
-            display: none;
-        }
-    }
+@media only screen and (max-width : 850px) {
+	footer {
+		div.logos {
+			div.collaborators {
+				margin-top: 10px;
+				display: block;
+			}
+		}
+	}
 }
 
+@media only screen and (max-width : 750px) {
+	footer {
+		text-align: justify;
+		div.logos {
+			padding-bottom: 0px;
+			a {
+				width: 100%;
+				img {
+					width: 100%;
+				}
+			}
+			div.collaboration {
+				text-align: center;
+				display: block;
+				margin: 10px 0;
+			}
+            div.collaborators {
+            	width: 280px;
+            	display: block;
+            	margin: 0 auto;
+            	margin-bottom: 10px;
+            	a {
+            		margin-left: 10px;
+            		&:first-child {
+            			margin-left: 0px;
+            		}
+            		&:last-child {
+            			margin-left: 15px;
+            		}
+            		img {
+            			width: auto;
+            			margin: 0 0px;
+            		}
+            	}
+            }	
+        }	
+	}
+}
 
-@media only screen and (max-width : 1000px) {
-    footer {
-        div.more-projects {
-        	margin-top: 50px;        		
-        }
-    }
+@media only screen and (max-width : $breakpoint-500) {
+	footer {
+		text-align: justify;
+		div.more-from {
+			margin-top: 20px;
+		}
+	}
 }

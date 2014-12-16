@@ -6,8 +6,8 @@ angular.module('glnApp').directive("visualization", ["$window", "$timeout",
         selectedDataset: "="
       }
       link: (scope, ele, attrs) ->
-        $window.onresize = -> 
-          scope.$apply()
+        # $window.onresize = -> 
+        #   scope.$apply()
 
         # Resizing
         scope.$watch(( -> angular.element($window)[0].innerWidth ), ( -> scope.render(scope.selectedDataset)))
