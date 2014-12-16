@@ -196,6 +196,41 @@ header {
     }
 }
 
+div.sharing-options {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    div.label {
+        text-align: center;
+        padding-bottom: 2px;
+    }
+    div.share {
+        margin-right: 2px;
+        cursor: pointer;
+        float: right;
+        width: 30px;
+        height: 30px;
+        border-radius: 2px;
+        background-color: $unhover-gray;
+
+        &:hover {
+            background-color: $hover-black;
+            color: white;
+        }
+
+        div.icon {
+            width: 18px;
+            margin: 0 auto;
+            padding-top: 8px; 
+            font-size: 15px;           
+
+            &.fb {
+                padding-left: 4px;
+            }
+        }
+    }
+}
+
 div.visualization-pane {
     div.content {
         max-width: 800px;
@@ -276,6 +311,7 @@ div.datasets {
             cursor: pointer;
 
             div.container {
+                height: 80px;
                 border-radius: 2px;
                 &.active, &:hover {
                     background-color: $hover-black;

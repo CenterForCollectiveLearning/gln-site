@@ -48,6 +48,14 @@
                     <li ng-repeat="link in links"><a ng-class="{active: isActive(link.route)}" href="{{link.route}}">{{link.title}}</a></li>
                 </ul>
             </div>
+            <div class="sharing-options" ng-controller="sharingCtrl">
+                <div class="label">Share</div>
+                <div class="share" ng-click="clickGooglePlus()"><div class="icon"><i class="fa fa-google-plus fa-lg pull-left"></i></div></div>
+                <div class="share" ng-click="clickFacebook()"><div class="fb icon"><i class="fa fa-facebook fa-lg pull-left"></i></div></div>
+                <div class="share" ng-click="clickTwitter()"><div class="icon"><i class="fa fa-twitter fa-lg pull-left"></i></div></div>
+            </div>
+    </div>
+        </a>
         </header>
         <div class="wrapper">        
             <div ng-view></div>
@@ -116,5 +124,8 @@
           ga('create', 'UA-57600101-1', 'auto');
           ga('send', 'pageview')
       </script>
-    </body>
-</html>
+      <script type="text/javascript">
+      window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));
+      </script>
+  </body>
+  </html>

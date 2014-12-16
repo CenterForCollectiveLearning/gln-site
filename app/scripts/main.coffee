@@ -22,6 +22,54 @@ angular.module('glnApp').controller('navCtrl', ['$scope', '$location', ($scope, 
                 return false
 ])
 
+angular.module('glnApp').controller('sharingCtrl', ['$scope', ($scope) ->
+    $scope.clickGooglePlus = ->
+        width  = 575
+        height = 400
+        left   = ($(window).width()  - width)  / 2
+        top    = ($(window).height() - height) / 2  # encodeURIComponent(location.href)
+        url    = "https://plus.google.com/share?url=" + encodeURIComponent(location.href)
+        opts   = 'status=1' +
+               ',width='  + width  +
+               ',height=' + height +
+               ',top='    + top    +
+               ',left='   + left
+
+        window.open url, 'google', opts
+        false
+
+    $scope.clickFacebook = ->
+        width  = 575
+        height = 400
+        left   = ($(window).width()  - width)  / 2
+        top    = ($(window).height() - height) / 2  # encodeURIComponent(location.href)
+        url    = "http://facebook.com/sharer/sharer.php?u=" + encodeURIComponent(location.href)
+        opts   = 'status=1' +
+               ',width='  + width  +
+               ',height=' + height +
+               ',top='    + top    +
+               ',left='   + left
+  
+        window.open url, 'facebook', opts
+        false
+
+    $scope.clickTwitter = ->
+        question = "Explore the Global Language Network to learn how the world's languages are connected."
+        width  = 575
+        height = 400
+        left   = ($(window).width()  - width)  / 2
+        top    = ($(window).height() - height) / 2
+        url    = "http://www.twitter.com/intent/tweet?text=" + question + "&url=" + encodeURIComponent(location.href)
+        opts   = 'status=1' +
+               ',width='  + width  +
+               ',height=' + height +
+               ',top='    + top    +
+               ',left='   + left
+  
+        window.open url, 'twitter', opts
+        false
+])
+
 angular.module('glnApp').filter('capitalize', ->
     (input) -> input.charAt(0).toUpperCase() + input.substr(1).toLowerCase()
 )
