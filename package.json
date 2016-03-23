@@ -38,10 +38,11 @@
     "gulp-ng-annotate": "^0.3.3",
     "gulp-rename": "^1.2.0",
     "gulp-rimraf": "^0.1.1",
-    "gulp-sass": "^1.1.0",
+    "gulp-sass": "^2.2.0",
     "gulp-uglify": "^1.0.1",
     "gulp-util": "^3.0.1",
     "jquery": "^2.1.1",
+    "node-sass": "^3.4.2",
     "run-sequence": "^1.0.1",
     "vinyl-source-stream": "^1.0.0"
   },

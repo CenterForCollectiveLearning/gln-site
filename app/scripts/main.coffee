@@ -15,7 +15,7 @@ angular.module('glnApp').controller('navCtrl', ['$scope', '$location', ($scope, 
         if (route == '/')
             if (path.split('/')[1] == 'visualizations')
                 return true
-        else 
+        else
             if (path.substr(0, route.length) == route)
                 return true
             else
@@ -49,12 +49,12 @@ angular.module('glnApp').controller('sharingCtrl', ['$scope', ($scope) ->
                ',height=' + height +
                ',top='    + top    +
                ',left='   + left
-  
+
         window.open url, 'facebook', opts
         false
 
     $scope.clickTwitter = ->
-        question = "Explore the Global Language Network to learn how the world's languages are connected."
+        question = "Explore the global language network to learn how the world's languages are connected."
         width  = 575
         height = 400
         left   = ($(window).width()  - width)  / 2
@@ -65,7 +65,7 @@ angular.module('glnApp').controller('sharingCtrl', ['$scope', ($scope) ->
                ',height=' + height +
                ',top='    + top    +
                ',left='   + left
-  
+
         window.open url, 'twitter', opts
         false
 ])
@@ -167,7 +167,7 @@ angular.module('glnApp').directive('navigator', ($window, $document) ->
             scope.scrollTo = (direction) ->
                 if (direction is 'bottom')
                     $("body").animate(scrollTop: $("body").height())
-                else 
+                else
                     $("body").animate(scrollTop: 0)
     }
 )
