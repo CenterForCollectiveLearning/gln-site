@@ -5,7 +5,7 @@
     		<li class="dataset" ng-repeat="dataset in datasets">
                 <div class="container" ng-click="selectDataset(dataset.name)" ng-class="{'active':isActive(dataset.name)}">
                     <div class="icon">
-                        <i class="fa fa-{{dataset.icon}} icon"></i>  
+                        <i class="fa fa-{{dataset.icon}} icon"></i>
                     </div>
                     <div ng-class="{'visible':isActive(dataset.name)}" class="label">
                         {{dataset.name}}
@@ -26,26 +26,26 @@
         </div>
         <div class="desc">
             <p ng-if="isActive('books')">
-                In the Global Language Network (GLN) each node represents a language and links connect languages that are likely to be co-spoken. In the example above, languages are connected according to the frequency of book translations. Node sizes represent the number of native and non-native speakers of a language and edge thickness represents the number of translations from one language to another.
+                In the global language network each node represents a language and links connect languages that are likely to be co-spoken. In the example above, languages are connected according to the frequency of book translations. Node sizes represent the number of native and non-native speakers of a language and edge thickness represents the number of translations from one language to another.
             </p>
 
             <p ng-if="isActive('twitter')">
-                In the Global Language Network (GLN) each node represents a language and links connect languages that are likely to be co-spoken. In the example above, two languages are connected when users that tweet in one language are also significantly more likely to tweet in another language. Node size represents the number of native and non-native speakers of a language and edge thickness represents the number of users tweeting in both languages.
+                In the global language network each node represents a language and links connect languages that are likely to be co-spoken. In the example above, two languages are connected when users that tweet in one language are also significantly more likely to tweet in another language. Node size represents the number of native and non-native speakers of a language and edge thickness represents the number of users tweeting in both languages.
             </p>
 
             <p ng-if="isActive('wikipedia')">
-                In the Global Language Network (GLN) each node represents a language and links connect languages that are likely to be co-spoken. In the example above, two languages are connected when users that edit an article in one Wikipedia language edition are significantly more likely to also edit an article in another language edition. Node size represents the number of native and non-native speakers of a language and edge thickness represents the number of number of editors editing an article in both
+                In the global language network each node represents a language and links connect languages that are likely to be co-spoken. In the example above, two languages are connected when users that edit an article in one Wikipedia language edition are significantly more likely to also edit an article in another language edition. Node size represents the number of native and non-native speakers of a language and edge thickness represents the number of number of editors editing an article in both
             </p>
 
-            <p>The position of a language in the Global Language Network is highly correlated with the number of globally famous people born in the territories associated with that language. We identify globally famous people using The MIT Media Lab’s <a href="http://pantheon.media.mit.edu" target="_blank">Pantheon project</a> and the list published in the book Human Accomplishments.</p>
+            <p>The position of a language in the global language network is highly correlated with the number of globally famous people born in the territories associated with that language. We identify globally famous people using The MIT Media Lab’s <a href="http://pantheon.media.mit.edu" target="_blank">Pantheon project</a> and the list published in the book Human Accomplishments.</p>
 
             <p>For details on the methodology and interpretation of the data see Ronen et al. <a href="http://www.pnas.org/cgi/doi/10.1073/pnas.1410931111" target="_blank">Links that speak: the global language network and its association with global fame</a>. Proceedings of the National Academy of Sciences (PNAS) (2014), 10.1073/pnas.1410931111.</p>
         </div>
     </div>
-    <div class="navigator" navigator>    
+    <div class="navigator" navigator>
         <div class="to-bottom" ng-if="top" ng-click="scrollTo('bottom')">
-            Description  
-            <div class="arrow-down"></div>      
+            Description
+            <div class="arrow-down"></div>
         </div>
         <div class="to-top" ng-if="!top" ng-click="scrollTo('top')">
             <div class="arrow-up"></div>
